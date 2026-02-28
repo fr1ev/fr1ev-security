@@ -4,44 +4,154 @@
   <title>FR1EV SECURITY</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      background: #0a0f1a;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0f1a, #0f172a);
       color: white;
-      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 100px 20px;
       text-align: center;
     }
+
     h1 {
-      font-size: 48px;
-      margin-top: 100px;
+      font-size: 60px;
+      margin: 0;
+      font-weight: 800;
     }
-    p {
-      font-size: 18px;
-      opacity: 0.8;
+
+    .subtitle {
+      font-size: 20px;
+      opacity: 0.7;
+      margin-top: 15px;
     }
+
+    .buttons {
+      margin-top: 40px;
+    }
+
     .button {
       display: inline-block;
-      margin: 20px;
-      padding: 12px 24px;
-      background: #1f6feb;
+      margin: 10px;
+      padding: 14px 30px;
+      background: #5865F2;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.2s ease;
     }
+
     .button:hover {
-      background: #388bfd;
+      background: #4752C4;
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 30px;
+      border-radius: 15px;
+      width: 280px;
+      transition: 0.3s;
+      border: 1px solid #1f2937;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #5865F2;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      opacity: 0.6;
+      font-size: 14px;
+      border-top: 1px solid #1f2937;
+    }
+
+    .glow {
+      color: #5865F2;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>🛡️ FR1EV SECURITY</h1>
-  <p>Advanced moderation and server protection for Discord.</p>
+<header>
+  <h1>🛡️ FR1EV <span class="glow">SECURITY</span></h1>
+  <p class="subtitle">Advanced moderation & intelligent protection for Discord servers.</p>
 
-  <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&scope=bot%20applications.commands&permissions=8">Invite Bot</a>
-  <a class="button" href="https://discord.gg/Bd7fEsTHNJ">Support Server</a>
+  <div class="buttons">
+    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&scope=bot%20applications.commands&permissions=8">Invite Bot</a>
+    <a class="button" href="https://discord.gg/Bd7fEsTHNJ">Support Server</a>
+  </div>
+</header>
+
+<section>
+  <h2>🚀 Core Features</h2>
+
+  <div class="features">
+
+    <div class="card">
+      <h3>⚔ Moderation System</h3>
+      <p>Warn, timeout, kick, ban, lockdown and advanced role-based access control.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 AI Integration</h3>
+      <p>AI-powered responses and smart interaction commands built directly into the bot.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔒 Owner Control</h3>
+      <p>Global owner-only commands and secure management architecture.</p>
+    </div>
+
+    <div class="card">
+      <h3>📊 Logging System</h3>
+      <p>Track moderation actions and maintain clean server oversight.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Fast & Lightweight</h3>
+      <p>Optimized for performance and stable multi-server usage.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>📌 Prefix</h2>
+  <p>Default command prefix: <strong>f!</strong></p>
+</section>
+
+<footer>
+  © 2026 FR1EV SECURITY — Verified Discord Application
+</footer>
 
 </body>
 </html>
