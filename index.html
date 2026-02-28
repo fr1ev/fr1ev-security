@@ -88,7 +88,7 @@
   </div>
 
   <div class="status-box" id="botStatus">
-    <span class="status-dot online"></span> Bot Online
+    <span class="status-dot offline"></span> Checking status...
   </div>
 
 </header>
@@ -130,22 +130,35 @@
 </footer>
 
 <script>
-// Simple online indicator simulation.
-// For real detection you need a small API endpoint from your bot.
+  const statusUrl = "https://fr1ev.github.io/fr1ev-security/status.json?v=" + Date.now();
 
-fetch("https://discord.com/api/v10/applications/1453017552551936000")
-  .then(res => {
-    if(res.ok){
-      document.getElementById("botStatus").innerHTML =
-        '<span class="status-dot online"></span> Bot Online';
-    } else {
-      throw new Error();
-    }
-  })
-  .catch(() => {
+  function setOnline(diff) {
     document.getElementById("botStatus").innerHTML =
-      '<span class="status-dot offline"></span> Bot Offline';
-  });
+      '<span class="status-dot online"></span> Bot Online (last ping ' + diff + 's ago)';
+  }
+
+  function setOffline(reason) {
+    document.getElementById("botStatus").innerHTML =
+      '<span class="status-dot offline"></span> Bot Offline' + (reason ? " (" + reason + ")" : "");
+  }
+
+  fetch(statusUrl, { cache: "no-store" })
+    .then(res => {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(data => {
+      const now = Math.floor(Date.now() / 1000);
+      const last = Number(data.last_heartbeat);
+      const diff = now - last;
+
+      if (!last || isNaN(last)) return setOffline("invalid status.json");
+      if (diff < 300) return setOnline(diff);
+      return setOffline("last ping " + diff + "s ago");
+    })
+    .catch(err => {
+      setOffline("fetch failed");
+    });
 </script>
 
 </body>
