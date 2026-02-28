@@ -9,16 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    body { margin:0; font-family:'Inter',sans-serif; background:linear-gradient(135deg,#0a0f1a,#0f172a); color:white; overflow-x:hidden; }
+    body { margin:0; font-family:'Inter',sans-serif; background:linear-gradient(135deg,#0a0f1a,#0f172a); color:white; }
     header { padding:120px 20px; text-align:center; }
     h1 { font-size:60px; margin:0; font-weight:800; }
     .glow { color:#5865F2; }
     .subtitle { font-size:20px; opacity:0.7; margin-top:15px; }
 
-    .buttons { margin-top:60px; display:flex; justify-content:center; align-items:center; gap:30px; flex-wrap:wrap; }
+    .buttons { margin-top:60px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
 
     .button {
-      display:inline-block;
       padding:14px 36px;
       background:linear-gradient(135deg,#5865F2,#4752C4);
       color:white;
@@ -27,13 +26,42 @@
       font-weight:600;
       transition:0.25s ease;
     }
+
     .button:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(88,101,242,0.5); }
     .main-button { transform:scale(1.05); box-shadow:0 0 25px rgba(88,101,242,0.6); }
 
     section { padding:80px 20px; text-align:center; }
-    .features { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
-    .card { background:#111827; padding:30px; border-radius:15px; width:280px; transition:0.3s; border:1px solid #1f2937; }
-    .card:hover { transform:translateY(-8px); border-color:#5865F2; }
+
+    .comparison {
+      max-width:900px;
+      margin:40px auto 0 auto;
+      border-collapse:collapse;
+      width:100%;
+    }
+
+    .comparison th, .comparison td {
+      padding:14px;
+      border:1px solid #1f2937;
+    }
+
+    .comparison th { background:#111827; }
+
+    .status-box {
+      margin-top:30px;
+      font-size:18px;
+      font-weight:600;
+    }
+
+    .status-dot {
+      display:inline-block;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-right:8px;
+    }
+
+    .online { background:#4ade80; box-shadow:0 0 12px #4ade80; }
+    .offline { background:#ef4444; box-shadow:0 0 12px #ef4444; }
 
     footer { padding:30px; text-align:center; opacity:0.6; font-size:14px; border-top:1px solid #1f2937; }
   </style>
@@ -46,8 +74,6 @@
   <p class="subtitle">Advanced moderation & intelligent protection for Discord servers.</p>
 
   <div class="buttons">
-
-    <!-- GUILD INSTALL (Add bot to a server) -->
     <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8">
       Add to Server
     </a>
@@ -56,43 +82,71 @@
       Support Server
     </a>
 
-    <!-- USER INSTALL (Install app to a user account) -->
     <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands">
       User Install
     </a>
-
   </div>
+
+  <div class="status-box" id="botStatus">
+    <span class="status-dot online"></span> Bot Online
+  </div>
+
 </header>
 
 <section>
-  <h2>🚀 Core Features</h2>
-  <div class="features">
-    <div class="card">
-      <h3>⚔ Moderation System</h3>
-      <p>Warn, timeout, kick, ban, lockdown and advanced role-based access control.</p>
-    </div>
-    <div class="card">
-      <h3>🧠 AI Integration</h3>
-      <p>AI-powered responses and smart interaction commands built directly into the bot.</p>
-    </div>
-    <div class="card">
-      <h3>🔒 Owner Control</h3>
-      <p>Global owner-only commands and secure management architecture.</p>
-    </div>
-    <div class="card">
-      <h3>📊 Logging System</h3>
-      <p>Track moderation actions and maintain clean server oversight.</p>
-    </div>
-    <div class="card">
-      <h3>⚡ Fast & Lightweight</h3>
-      <p>Optimized for performance and stable multi-server usage.</p>
-    </div>
-  </div>
+  <h2>⚔ Why Choose FR1EV?</h2>
+
+  <table class="comparison">
+    <tr>
+      <th>Feature</th>
+      <th>FR1EV</th>
+      <th>Typical Bot</th>
+    </tr>
+    <tr>
+      <td>Global Owner Control</td>
+      <td>✅</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Role-Based Access System</td>
+      <td>✅</td>
+      <td>⚠ Basic</td>
+    </tr>
+    <tr>
+      <td>AI Integration</td>
+      <td>✅</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Lightweight Architecture</td>
+      <td>✅</td>
+      <td>❌</td>
+    </tr>
+  </table>
 </section>
 
 <footer>
   © 2026 FR1EV SECURITY — Verified Discord Application
 </footer>
+
+<script>
+// Simple online indicator simulation.
+// For real detection you need a small API endpoint from your bot.
+
+fetch("https://discord.com/api/v10/applications/1453017552551936000")
+  .then(res => {
+    if(res.ok){
+      document.getElementById("botStatus").innerHTML =
+        '<span class="status-dot online"></span> Bot Online';
+    } else {
+      throw new Error();
+    }
+  })
+  .catch(() => {
+    document.getElementById("botStatus").innerHTML =
+      '<span class="status-dot offline"></span> Bot Offline';
+  });
+</script>
 
 </body>
 </html>
