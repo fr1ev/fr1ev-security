@@ -86,16 +86,65 @@
       margin-top: 0;
     }
 
+    .glow {
+      color: #5865F2;
+    }
+
+    .widgetWrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .widgetFrame {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(88,101,242,0.30);
+      border: 1px solid #1f2937;
+    }
+
+    .statusLine {
+      margin-top: 18px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4ade80;
+      margin-right: 8px;
+      box-shadow: 0 0 16px rgba(74,222,128,0.65);
+      animation: pulse 1.5s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.35); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    .codeBox {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: #0b1220;
+      border: 1px solid #1f2937;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
     footer {
       padding: 30px;
       text-align: center;
       opacity: 0.6;
       font-size: 14px;
       border-top: 1px solid #1f2937;
-    }
-
-    .glow {
-      color: #5865F2;
     }
   </style>
 </head>
@@ -116,7 +165,6 @@
   <h2>🚀 Core Features</h2>
 
   <div class="features">
-
     <div class="card">
       <h3>⚔ Moderation System</h3>
       <p>Warn, timeout, kick, ban, lockdown and advanced role-based access control.</p>
@@ -141,18 +189,51 @@
       <h3>⚡ Fast & Lightweight</h3>
       <p>Optimized for performance and stable multi-server usage.</p>
     </div>
+  </div>
+</section>
 
+<section>
+  <h2>🌍 Official Support Server</h2>
+  <p class="subtitle" style="margin-top:10px;">Live member list & real-time activity</p>
+
+  <div class="widgetWrap">
+    <div class="widgetFrame">
+      <iframe
+        src="https://discord.com/widget?id=1445041799423983729&theme=dark"
+        width="350"
+        height="500"
+        allowtransparency="true"
+        frameborder="0">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="statusLine" id="onlineCount">
+    <span class="dot"></span> Checking live status...
   </div>
 </section>
 
 <section>
   <h2>📌 Prefix</h2>
-  <p>Default command prefix: <strong>f!</strong></p>
+  <div class="codeBox">f!</div>
 </section>
 
 <footer>
   © 2026 FR1EV SECURITY — Verified Discord Application
 </footer>
+
+<script>
+  fetch("https://discord.com/api/guilds/1445041799423983729/widget.json")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("onlineCount").innerHTML =
+        '<span class="dot"></span> Online Now: ' + data.presence_count;
+    })
+    .catch(() => {
+      document.getElementById("onlineCount").innerHTML =
+        '⚠ Status unavailable (Discord blocked the widget API or cache)';
+    });
+</script>
 
 </body>
 </html>
