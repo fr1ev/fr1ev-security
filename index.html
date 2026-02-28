@@ -9,99 +9,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0f1a, #0f172a);
-      color: white;
-      overflow-x: hidden;
-    }
+    body { margin:0; font-family:'Inter',sans-serif; background:linear-gradient(135deg,#0a0f1a,#0f172a); color:white; overflow-x:hidden; }
+    header { padding:120px 20px; text-align:center; }
+    h1 { font-size:60px; margin:0; font-weight:800; }
+    .glow { color:#5865F2; }
+    .subtitle { font-size:20px; opacity:0.7; margin-top:15px; }
 
-    header {
-      padding: 120px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 60px;
-      margin: 0;
-      font-weight: 800;
-    }
-
-    .glow {
-      color: #5865F2;
-    }
-
-    .subtitle {
-      font-size: 20px;
-      opacity: 0.7;
-      margin-top: 15px;
-    }
-
-    .buttons {
-      margin-top: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
+    .buttons { margin-top:60px; display:flex; justify-content:center; align-items:center; gap:30px; flex-wrap:wrap; }
 
     .button {
-      display: inline-block;
-      padding: 14px 36px;
-      background: linear-gradient(135deg, #5865F2, #4752C4);
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.25s ease;
+      display:inline-block;
+      padding:14px 36px;
+      background:linear-gradient(135deg,#5865F2,#4752C4);
+      color:white;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.25s ease;
     }
+    .button:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(88,101,242,0.5); }
+    .main-button { transform:scale(1.05); box-shadow:0 0 25px rgba(88,101,242,0.6); }
 
-    .button:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(88,101,242,0.5);
-    }
+    section { padding:80px 20px; text-align:center; }
+    .features { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
+    .card { background:#111827; padding:30px; border-radius:15px; width:280px; transition:0.3s; border:1px solid #1f2937; }
+    .card:hover { transform:translateY(-8px); border-color:#5865F2; }
 
-    .main-button {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(88,101,242,0.6);
-    }
-
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: #111827;
-      padding: 30px;
-      border-radius: 15px;
-      width: 280px;
-      transition: 0.3s;
-      border: 1px solid #1f2937;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: #5865F2;
-    }
-
-    footer {
-      padding: 30px;
-      text-align: center;
-      opacity: 0.6;
-      font-size: 14px;
-      border-top: 1px solid #1f2937;
-    }
+    footer { padding:30px; text-align:center; opacity:0.6; font-size:14px; border-top:1px solid #1f2937; }
   </style>
 </head>
 
@@ -113,7 +47,8 @@
 
   <div class="buttons">
 
-    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&scope=bot%20applications.commands&permissions=8">
+    <!-- GUILD INSTALL (Add bot to a server) -->
+    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8">
       Add to Server
     </a>
 
@@ -121,7 +56,8 @@
       Support Server
     </a>
 
-    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&scope=applications.commands">
+    <!-- USER INSTALL (Install app to a user account) -->
+    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands">
       User Install
     </a>
 
@@ -130,28 +66,23 @@
 
 <section>
   <h2>🚀 Core Features</h2>
-
   <div class="features">
     <div class="card">
       <h3>⚔ Moderation System</h3>
       <p>Warn, timeout, kick, ban, lockdown and advanced role-based access control.</p>
     </div>
-
     <div class="card">
       <h3>🧠 AI Integration</h3>
       <p>AI-powered responses and smart interaction commands built directly into the bot.</p>
     </div>
-
     <div class="card">
       <h3>🔒 Owner Control</h3>
       <p>Global owner-only commands and secure management architecture.</p>
     </div>
-
     <div class="card">
       <h3>📊 Logging System</h3>
       <p>Track moderation actions and maintain clean server oversight.</p>
     </div>
-
     <div class="card">
       <h3>⚡ Fast & Lightweight</h3>
       <p>Optimized for performance and stable multi-server usage.</p>
