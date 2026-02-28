@@ -18,7 +18,7 @@
     }
 
     header {
-      padding: 100px 20px;
+      padding: 120px 20px;
       text-align: center;
     }
 
@@ -28,6 +28,10 @@
       font-weight: 800;
     }
 
+    .glow {
+      color: #5865F2;
+    }
+
     .subtitle {
       font-size: 20px;
       opacity: 0.7;
@@ -35,24 +39,33 @@
     }
 
     .buttons {
-      margin-top: 40px;
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
     }
 
     .button {
       display: inline-block;
-      margin: 10px;
-      padding: 14px 30px;
-      background: #5865F2;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #5865F2, #4752C4);
       color: white;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: 600;
-      transition: 0.2s ease;
+      transition: 0.25s ease;
     }
 
     .button:hover {
-      background: #4752C4;
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(88,101,242,0.5);
+    }
+
+    .main-button {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(88,101,242,0.6);
     }
 
     section {
@@ -82,63 +95,6 @@
       border-color: #5865F2;
     }
 
-    .card h3 {
-      margin-top: 0;
-    }
-
-    .glow {
-      color: #5865F2;
-    }
-
-    .widgetWrap {
-      display: flex;
-      justify-content: center;
-      margin-top: 40px;
-    }
-
-    .widgetFrame {
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 40px rgba(88,101,242,0.30);
-      border: 1px solid #1f2937;
-    }
-
-    .statusLine {
-      margin-top: 18px;
-      font-weight: 600;
-      opacity: 0.9;
-    }
-
-    .dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #4ade80;
-      margin-right: 8px;
-      box-shadow: 0 0 16px rgba(74,222,128,0.65);
-      animation: pulse 1.5s infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.35); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-
-    .codeBox {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      background: #0b1220;
-      border: 1px solid #1f2937;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 16px;
-      opacity: 0.95;
-    }
-
     footer {
       padding: 30px;
       text-align: center;
@@ -156,8 +112,19 @@
   <p class="subtitle">Advanced moderation & intelligent protection for Discord servers.</p>
 
   <div class="buttons">
-    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&scope=bot%20applications.commands&permissions=8">Invite Bot</a>
-    <a class="button" href="https://discord.gg/Bd7fEsTHNJ">Support Server</a>
+
+    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&scope=bot%20applications.commands&permissions=8">
+      Add to Server
+    </a>
+
+    <a class="button main-button" href="https://discord.gg/Bd7fEsTHNJ">
+      Support Server
+    </a>
+
+    <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&scope=applications.commands">
+      User Install
+    </a>
+
   </div>
 </header>
 
@@ -192,48 +159,9 @@
   </div>
 </section>
 
-<section>
-  <h2>🌍 Official Support Server</h2>
-  <p class="subtitle" style="margin-top:10px;">Live member list & real-time activity</p>
-
-  <div class="widgetWrap">
-    <div class="widgetFrame">
-      <iframe
-        src="https://discord.com/widget?id=1445041799423983729&theme=dark"
-        width="350"
-        height="500"
-        allowtransparency="true"
-        frameborder="0">
-      </iframe>
-    </div>
-  </div>
-
-  <div class="statusLine" id="onlineCount">
-    <span class="dot"></span> Checking live status...
-  </div>
-</section>
-
-<section>
-  <h2>📌 Prefix</h2>
-  <div class="codeBox">f!</div>
-</section>
-
 <footer>
   © 2026 FR1EV SECURITY — Verified Discord Application
 </footer>
-
-<script>
-  fetch("https://discord.com/api/guilds/1445041799423983729/widget.json")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("onlineCount").innerHTML =
-        '<span class="dot"></span> Online Now: ' + data.presence_count;
-    })
-    .catch(() => {
-      document.getElementById("onlineCount").innerHTML =
-        '⚠ Status unavailable (Discord blocked the widget API or cache)';
-    });
-</script>
 
 </body>
 </html>
