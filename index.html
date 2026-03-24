@@ -185,7 +185,7 @@ const last=Number(data.last_heartbeat);
 const diff=now-last;
 
 if(!last||isNaN(last)) return setOffline("invalid status.json");
-if(diff<300) return setOnline(diff);
+if(diff<1200) return setOnline(diff);
 return setOffline("last ping "+diff+"s ago");
 })
 .catch(err=>{
