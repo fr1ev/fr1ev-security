@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FR1EV OAuth Callback</title>
+  <meta charset="UTF-8">
+  <title>FR1EV Callback</title>
 </head>
 <body>
-    <h2>Processing...</h2>
+  <h2>OAuth callback page</h2>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
-
-        if (code) {
-            document.body.innerHTML = `
-                <h2>✅ Authorization received</h2>
-                <p>Code:</p>
-                <code>${code}</code>
-            `;
-
-            // OPTIONAL: send it to your bot API later
-            // fetch("https://your-backend.com/exchange", { method: "POST", body: JSON.stringify({ code }) })
-        } else {
-            document.body.innerHTML = "<h2>❌ No code found</h2>";
-        }
-    </script>
+    if (code) {
+      document.body.innerHTML = `<h2>✅ Code received</h2><code>${code}</code>`;
+    } else {
+      document.body.innerHTML = `<h2>❌ No code found</h2>`;
+    }
+  </script>
 </body>
 </html>
