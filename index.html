@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <title>FR1EV SECURITY</title>
@@ -32,6 +31,7 @@ h1 { font-size:60px; margin:0; font-weight:800; }
 .subtitle { font-size:20px; opacity:0.7; margin-top:15px; }
 
 .buttons { margin-top:60px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
+.profile-row { margin-top:24px; display:flex; justify-content:center; }
 
 .button {
 padding:14px 36px;
@@ -41,6 +41,7 @@ text-decoration:none;
 border-radius:12px;
 font-weight:600;
 transition:0.25s ease;
+display:inline-block;
 }
 
 .button:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(88,101,242,0.5); }
@@ -92,18 +93,24 @@ footer { padding:30px; text-align:center; opacity:0.6; font-size:14px; border-to
 
 <div class="buttons">
 
-<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8">
+<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8" target="_blank" rel="noopener noreferrer">
 Add to Server
 </a>
 
-<a class="button main-button" href="https://discord.gg/TEMa2cFh6h">
+<a class="button main-button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">
 Support Server
 </a>
 
-<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands">
+<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">
 User Install
 </a>
 
+</div>
+
+<div class="profile-row">
+<a class="button" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">
+Profile
+</a>
 </div>
 
 <div class="status-box" id="botStatus">
