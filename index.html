@@ -1,204 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>FR1EV SECURITY</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="CCaXhxuBgHjBknScV_EMFCmz6NVOu2kSI3Sb2W1lOSU" />
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://fr1ev.github.io/fr1ev-security/">
-<meta property="og:title" content="FR1EV SECURITY">
-<meta property="og:description" content="Advanced moderation & intelligent protection for Discord servers.">
-<meta property="og:image" content="https://fr1ev.github.io/fr1ev-security/favicon.ico">
+  <title>FR1EV SECURITY | Discord Moderation & Protection Bot</title>
+  <meta name="description" content="FR1EV SECURITY is an advanced Discord moderation and protection bot with smart safeguards, AI integration, role-based access, and reliable server security tools.">
+  <meta name="keywords" content="FR1EV SECURITY, Discord bot, moderation bot, Discord security bot, Discord protection, server moderation, AI Discord bot">
+  <meta name="author" content="FR1EV">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FR1EV SECURITY">
-<meta name="twitter:description" content="Advanced moderation & intelligent protection for Discord servers.">
-<meta name="twitter:image" content="https://fr1ev.github.io/fr1ev-security/favicon.ico">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fr1ev.github.io/fr1ev-security/">
+  <meta property="og:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
+  <meta property="og:description" content="Advanced moderation and intelligent protection for Discord servers.">
+  <meta property="og:image" content="https://fr1ev.github.io/fr1ev-security/favicon.ico">
 
-<meta name="theme-color" content="#5865F2">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
+  <meta name="twitter:description" content="Advanced moderation and intelligent protection for Discord servers.">
+  <meta name="twitter:image" content="https://fr1ev.github.io/fr1ev-security/favicon.ico">
 
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#5865F2">
 
-<script src="https://unpkg.com/@discord/embedded-app-sdk"></script>
+  <link rel="canonical" href="https://fr1ev.github.io/fr1ev-security/">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-<style>
-body { margin:0; font-family:'Inter',sans-serif; background:linear-gradient(135deg,#0a0f1a,#0f172a); color:white; }
-header { padding:120px 20px; text-align:center; }
-h1 { font-size:60px; margin:0; font-weight:800; }
-.glow { color:#5865F2; }
-.subtitle { font-size:20px; opacity:0.7; margin-top:15px; }
+  <script src="https://unpkg.com/@discord/embedded-app-sdk"></script>
 
-.buttons { margin-top:60px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
-.profile-row { margin-top:24px; display:flex; justify-content:center; }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0f1a, #0f172a);
+      color: white;
+    }
 
-.button {
-padding:14px 36px;
-background:linear-gradient(135deg,#5865F2,#4752C4);
-color:white;
-text-decoration:none;
-border-radius:12px;
-font-weight:600;
-transition:0.25s ease;
-display:inline-block;
-}
+    header {
+      padding: 120px 20px;
+      text-align: center;
+    }
 
-.button:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(88,101,242,0.5); }
-.main-button { transform:scale(1.05); box-shadow:0 0 25px rgba(88,101,242,0.6); }
+    h1 {
+      font-size: 60px;
+      margin: 0;
+      font-weight: 800;
+    }
 
-section { padding:80px 20px; text-align:center; }
+    h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
 
-.comparison {
-max-width:900px;
-margin:40px auto 0 auto;
-border-collapse:collapse;
-width:100%;
-}
+    .glow {
+      color: #5865F2;
+    }
 
-.comparison th, .comparison td {
-padding:14px;
-border:1px solid #1f2937;
-}
+    .subtitle {
+      font-size: 20px;
+      opacity: 0.7;
+      margin-top: 15px;
+    }
 
-.comparison th { background:#111827; }
+    .buttons {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
 
-.status-box {
-margin-top:30px;
-font-size:18px;
-font-weight:600;
-}
+    .profile-row {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
 
-.status-dot {
-display:inline-block;
-width:10px;
-height:10px;
-border-radius:50%;
-margin-right:8px;
-}
+    .button {
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #5865F2, #4752C4);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.25s ease;
+      display: inline-block;
+    }
 
-.online { background:#4ade80; box-shadow:0 0 12px #4ade80; }
-.offline { background:#ef4444; box-shadow:0 0 12px #ef4444; }
+    .button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5);
+    }
 
-footer { padding:30px; text-align:center; opacity:0.6; font-size:14px; border-top:1px solid #1f2937; }
-</style>
+    .main-button {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(88, 101, 242, 0.6);
+    }
 
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .comparison {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 14px;
+      border: 1px solid #1f2937;
+    }
+
+    .comparison th {
+      background: #111827;
+    }
+
+    .status-box {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .online {
+      background: #4ade80;
+      box-shadow: 0 0 12px #4ade80;
+    }
+
+    .offline {
+      background: #ef4444;
+      box-shadow: 0 0 12px #ef4444;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      opacity: 0.6;
+      font-size: 14px;
+      border-top: 1px solid #1f2937;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<h1>🛡️ FR1EV <span class="glow">SECURITY</span></h1>
-<p class="subtitle">Advanced moderation & intelligent protection for Discord servers.</p>
+  <header>
+    <h1>🛡️ FR1EV <span class="glow">SECURITY</span></h1>
+    <p class="subtitle">Advanced moderation & intelligent protection for Discord servers.</p>
 
-<div class="buttons">
+    <div class="buttons">
+      <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8" target="_blank" rel="noopener noreferrer">
+        Add to Server
+      </a>
 
-<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8" target="_blank" rel="noopener noreferrer">
-Add to Server
-</a>
+      <a class="button main-button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">
+        Support Server
+      </a>
 
-<a class="button main-button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">
-Support Server
-</a>
+      <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">
+        User Install
+      </a>
+    </div>
 
-<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">
-User Install
-</a>
+    <div class="profile-row">
+      <a class="button" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">
+        Profile
+      </a>
+    </div>
 
-</div>
+    <div class="status-box" id="botStatus">
+      <span class="status-dot offline"></span> Checking status...
+    </div>
+  </header>
 
-<div class="profile-row">
-<a class="button" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">
-Profile
-</a>
-</div>
+  <section>
+    <h2>⚔ Why Choose FR1EV?</h2>
 
-<div class="status-box" id="botStatus">
-<span class="status-dot offline"></span> Checking status...
-</div>
+    <table class="comparison">
+      <tr>
+        <th>Feature</th>
+        <th>FR1EV</th>
+        <th>Typical Bot</th>
+      </tr>
 
-</header>
+      <tr>
+        <td>Global Owner Control</td>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
 
-<section>
-<h2>⚔ Why Choose FR1EV?</h2>
+      <tr>
+        <td>Role-Based Access System</td>
+        <td>✅</td>
+        <td>⚠ Basic</td>
+      </tr>
 
-<table class="comparison">
-<tr>
-<th>Feature</th>
-<th>FR1EV</th>
-<th>Typical Bot</th>
-</tr>
+      <tr>
+        <td>AI Integration</td>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
 
-<tr>
-<td>Global Owner Control</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
+      <tr>
+        <td>Lightweight Architecture</td>
+        <td>✅</td>
+        <td>❌</td>
+      </tr>
+    </table>
+  </section>
 
-<tr>
-<td>Role-Based Access System</td>
-<td>✅</td>
-<td>⚠ Basic</td>
-</tr>
+  <footer>
+    © 2026 FR1EV SECURITY — Verified Discord Application
+  </footer>
 
-<tr>
-<td>AI Integration</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
+  <script>
+    const discordSdk = new DiscordSDK("1453017552551936000");
 
-<tr>
-<td>Lightweight Architecture</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-</table>
-</section>
+    async function startActivity() {
+      await discordSdk.ready();
+      console.log("FR1EV Activity running inside Discord");
+    }
 
-<footer>
-© 2026 FR1EV SECURITY — Verified Discord Application
-</footer>
+    startActivity();
 
-<script>
-const discordSdk = new DiscordSDK("1453017552551936000");
+    const statusUrl = "https://fr1ev.github.io/fr1ev-security/status.json?v=" + Date.now();
 
-async function startActivity(){
-await discordSdk.ready();
-console.log("FR1EV Activity running inside Discord");
-}
+    function setOnline(diff) {
+      document.getElementById("botStatus").innerHTML =
+        '<span class="status-dot online"></span> Bot Online (last ping ' + diff + 's ago)';
+    }
 
-startActivity();
+    function setOffline(reason) {
+      document.getElementById("botStatus").innerHTML =
+        '<span class="status-dot offline"></span> Bot Offline' + (reason ? " (" + reason + ")" : "");
+    }
 
-const statusUrl = "https://fr1ev.github.io/fr1ev-security/status.json?v=" + Date.now();
+    fetch(statusUrl, { cache: "no-store" })
+      .then(res => {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(data => {
+        const now = Math.floor(Date.now() / 1000);
+        const last = Number(data.last_heartbeat);
+        const diff = now - last;
 
-function setOnline(diff){
-document.getElementById("botStatus").innerHTML =
-'<span class="status-dot online"></span> Bot Online (last ping ' + diff + 's ago)';
-}
-
-function setOffline(reason){
-document.getElementById("botStatus").innerHTML =
-'<span class="status-dot offline"></span> Bot Offline' + (reason ? " (" + reason + ")" : "");
-}
-
-fetch(statusUrl,{cache:"no-store"})
-.then(res=>{
-if(!res.ok) throw new Error("HTTP "+res.status);
-return res.json();
-})
-.then(data=>{
-const now=Math.floor(Date.now()/1000);
-const last=Number(data.last_heartbeat);
-const diff=now-last;
-
-if(!last||isNaN(last)) return setOffline("invalid status.json");
-if(diff<1200) return setOnline(diff);
-return setOffline("last ping "+diff+"s ago");
-})
-.catch(err=>{
-setOffline("fetch failed");
-});
-</script>
+        if (!last || isNaN(last)) return setOffline("invalid status.json");
+        if (diff < 1200) return setOnline(diff);
+        return setOffline("last ping " + diff + "s ago");
+      })
+      .catch(() => {
+        setOffline("fetch failed");
+      });
+  </script>
 
 </body>
 </html>
