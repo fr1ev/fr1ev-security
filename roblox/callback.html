@@ -36,6 +36,12 @@
       color: #9ec1ff;
       text-decoration: none;
     }
+
+    code {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
@@ -46,22 +52,28 @@
   </div>
 
   <script>
+    const WORKER_FINISH_URL = "https://fr1ev-auth.fr1evvv.workers.dev/roblox/finish";
+
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
     const state = params.get("state");
     const error = params.get("error");
+    const errorDescription = params.get("error_description");
 
     const msg = document.getElementById("msg");
     const details = document.getElementById("details");
 
     if (error) {
-      window.location.replace(
-        `https://fr1ev.github.io/fr1ev-security/roblox/fail.html?error=${encodeURIComponent(error)}`
-      );
+      const failUrl =
+        `https://fr1ev.github.io/fr1ev-security/roblox/fail.html?error=${encodeURIComponent(error)}` +
+        (errorDescription ? `&error_description=${encodeURIComponent(errorDescription)}` : "");
+
+      window.location.replace(failUrl);
     } else if (code && state) {
-      window.location.replace(
-        `https://fr1ev-auth.fr1evvv.workers.dev/roblox/finish?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`
-      );
+      const finishUrl =
+        `${WORKER_FINISH_URL}?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+
+      window.location.replace(finishUrl);
     } else {
       msg.textContent = "Missing callback data.";
       details.innerHTML = 'No <code>code</code> or <code>state</code> was found in the URL.';
