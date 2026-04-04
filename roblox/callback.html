@@ -3,47 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FR1EV Security - Callback</title>
+  <title>Roblox Callback Debug</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background: #0b1020;
       color: white;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      margin: 0;
-      text-align: center;
       padding: 20px;
+      text-align: center;
     }
     .box {
-      max-width: 700px;
+      max-width: 780px;
       background: #121a30;
       border: 1px solid #223055;
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
-    h1 { margin-top: 0; }
     code {
       background: #0a1328;
       padding: 2px 6px;
       border-radius: 6px;
       word-break: break-all;
     }
-    .small {
-      opacity: 0.8;
-      font-size: 14px;
-      margin-top: 16px;
-    }
   </style>
 </head>
 <body>
   <div class="box">
-    <h1>FR1EV Security</h1>
-    <p id="status">Checking callback data...</p>
-    <p class="small" id="details"></p>
+    <h1>Callback Debug</h1>
+    <p id="status">Checking callback parameters...</p>
+    <p id="details"></p>
   </div>
 
   <script>
@@ -56,17 +49,14 @@
     const details = document.getElementById("details");
 
     if (error) {
-      status.textContent = "Roblox linking failed.";
+      status.textContent = "Roblox returned an error.";
       details.innerHTML = `Error: <code>${error}</code>`;
     } else if (code) {
-      status.textContent = "Callback received.";
-      details.innerHTML =
-        `Authorization code detected. This page is only a website page, not the real backend callback.<br><br>` +
-        `Code: <code>${code}</code><br>` +
-        `State: <code>${state || "none"}</code>`;
+      status.textContent = "Authorization code detected.";
+      details.innerHTML = `Code: <code>${code}</code><br>State: <code>${state || "none"}</code>`;
     } else {
-      status.textContent = "No callback data found.";
-      details.textContent = "If you opened this page directly, that is normal.";
+      status.textContent = "No callback data was found.";
+      details.textContent = "That is normal if you opened this page directly.";
     }
   </script>
 </body>
