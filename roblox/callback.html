@@ -3,40 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roblox Callback Debug</title>
+  <title>FR1EV Security - Callback</title>
+  <meta http-equiv="refresh" content="0;url=https://fr1ev-auth.fr1evvv.workers.dev/roblox/finish" />
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0b1020;
+      background: #071133;
       color: white;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
     }
     .box {
-      max-width: 780px;
-      background: #121a30;
-      border: 1px solid #223055;
-      border-radius: 18px;
+      max-width: 700px;
+      background: #121f4a;
+      border: 1px solid #28428d;
+      border-radius: 20px;
       padding: 32px;
-    }
-    code {
-      background: #0a1328;
-      padding: 2px 6px;
-      border-radius: 6px;
-      word-break: break-all;
     }
   </style>
 </head>
 <body>
   <div class="box">
-    <h1>Callback Debug</h1>
-    <p id="status">Checking callback parameters...</p>
-    <p id="details"></p>
+    <h1>Completing Roblox link...</h1>
+    <p id="msg">Please wait while we finish your sign-in.</p>
   </div>
 
   <script>
@@ -45,18 +39,15 @@
     const state = params.get("state");
     const error = params.get("error");
 
-    const status = document.getElementById("status");
-    const details = document.getElementById("details");
-
     if (error) {
-      status.textContent = "Roblox returned an error.";
-      details.innerHTML = `Error: <code>${error}</code>`;
-    } else if (code) {
-      status.textContent = "Authorization code detected.";
-      details.innerHTML = `Code: <code>${code}</code><br>State: <code>${state || "none"}</code>`;
+      window.location.href =
+        `https://fr1ev.github.io/fr1ev-security/roblox/fail.html?error=${encodeURIComponent(error)}`;
+    } else if (code && state) {
+      window.location.href =
+        `https://fr1ev-auth.fr1evvv.workers.dev/roblox/finish?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
     } else {
-      status.textContent = "No callback data was found.";
-      details.textContent = "That is normal if you opened this page directly.";
+      document.getElementById("msg").textContent =
+        "Missing callback data.";
     }
   </script>
 </body>
