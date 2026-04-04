@@ -3,99 +3,365 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FR1EV Security Roblox Link</title>
+  <title>FR1EV Security | Roblox Link</title>
+  <meta name="theme-color" content="#0b1220" />
   <style>
-    body {
+    :root {
+      --bg-1: #040816;
+      --bg-2: #091327;
+      --card: rgba(16, 24, 48, 0.94);
+      --card-border: rgba(90, 120, 255, 0.18);
+      --line: rgba(148, 163, 184, 0.16);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --blue-1: #3b82f6;
+      --blue-2: #2563eb;
+      --blue-3: #1d4ed8;
+      --gray-btn: rgba(51, 65, 85, 0.78);
+      --gray-btn-border: rgba(148, 163, 184, 0.18);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1020;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      min-height: 100%;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 25%),
+        radial-gradient(circle at right bottom, rgba(37, 99, 235, 0.12), transparent 25%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    }
+
+    body {
       min-height: 100vh;
-      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 18px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1080px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      background: rgba(15, 23, 42, 0.74);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.18s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(59, 130, 246, 0.34);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.16);
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(16, 24, 48, 0.97), rgba(14, 22, 44, 0.93));
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 56px 48px;
       text-align: center;
     }
-    .box {
-      max-width: 760px;
-      width: 100%;
-      background: #121a30;
-      border: 1px solid #223055;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(37, 99, 235, 0.04));
+      pointer-events: none;
     }
-    h1 {
-      margin-top: 0;
+
+    .content {
+      position: relative;
+      z-index: 1;
     }
-    p {
-      line-height: 1.6;
-    }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      margin-top: 24px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.24);
+      color: #c7d2fe;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
     }
-    a.button {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 10px;
+
+    h1 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 22px auto 0;
+      max-width: 860px;
+      color: #d7deea;
+      font-size: 21px;
+      line-height: 1.65;
+    }
+
+    .buttons {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-width: 215px;
+      padding: 18px 24px;
+      border-radius: 18px;
       text-decoration: none;
+      font-weight: 800;
+      font-size: 18px;
+      transition: 0.18s ease;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .btn-primary {
       color: white;
-      background: #2d5fff;
-      font-weight: bold;
+      background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
     }
-    a.secondary {
-      background: #1a2442;
-      border: 1px solid #31436f;
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, #4f8ff8, var(--blue-3));
     }
-    .small {
-      margin-top: 20px;
-      opacity: 0.8;
+
+    .btn-secondary {
+      color: var(--text);
+      background: var(--gray-btn);
+      border-color: var(--gray-btn-border);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: rgba(59, 130, 246, 0.24);
+    }
+
+    .status-box {
+      margin: 30px auto 0;
+      max-width: 700px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(2, 6, 23, 0.34);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .status-box.good {
+      color: #bfdbfe;
+      border-color: rgba(59, 130, 246, 0.22);
+      background: rgba(59, 130, 246, 0.07);
+    }
+
+    .status-box.bad {
+      color: #fecaca;
+      border-color: rgba(239, 68, 68, 0.18);
+      background: rgba(239, 68, 68, 0.07);
+    }
+
+    .fineprint {
+      margin-top: 26px;
+      color: #7f8ea8;
       font-size: 14px;
+      line-height: 1.7;
     }
-    code {
-      background: #0a1328;
-      padding: 2px 6px;
-      border-radius: 6px;
-      word-break: break-all;
+
+    .loading {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .card {
+        padding: 42px 24px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .btn {
+        min-width: 200px;
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 20px 14px;
+      }
+
+      .card {
+        padding: 34px 18px;
+        border-radius: 22px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .buttons {
+        gap: 12px;
+      }
+
+      .btn {
+        min-width: 100%;
+        font-size: 17px;
+        padding: 16px 18px;
+      }
+
+      .back-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>FR1EV Security Roblox Link</h1>
-    <p>
-      Link your Roblox account to FR1EV Security for verification and Roblox connection features.
-    </p>
+  <div class="wrap">
+    <a class="back-btn" href="https://fr1ev.github.io/fr1ev-security/" aria-label="Back to main site">
+      <span style="font-size:18px;">←</span>
+      <span>Back to Main Site</span>
+    </a>
 
-    <div class="buttons">
-      <a class="button" id="linkButton" href="#">Link Roblox</a>
-      <a class="button secondary" href="./tos.html">Roblox Terms</a>
-      <a class="button secondary" href="./privacy.html">Roblox Privacy</a>
+    <div class="card">
+      <div class="content">
+        <div class="badge">FR1EV SECURITY</div>
+
+        <h1>FR1EV Security Roblox Link</h1>
+
+        <p class="subtitle">
+          Link your Roblox account to FR1EV Security for verification, account connection features, role sync, and future Roblox-based server systems.
+        </p>
+
+        <div class="buttons">
+          <a id="actionBtn" class="btn btn-primary loading" href="#">Checking link status...</a>
+          <a class="btn btn-secondary" href="https://fr1ev.github.io/fr1ev-security/roblox/tos.html">Roblox Terms</a>
+          <a class="btn btn-secondary" href="https://fr1ev.github.io/fr1ev-security/roblox/privacy.html">Roblox Privacy</a>
+        </div>
+
+        <div id="statusBox" class="status-box">
+          Checking your Roblox link status...
+        </div>
+
+        <div class="fineprint">
+          Open this page from Discord so your Discord ID can be passed in the link automatically.
+        </div>
+      </div>
     </div>
-
-    <p class="small">
-      This page is the public website part. The actual secure Roblox OAuth flow should continue on your backend.
-    </p>
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const discordId = params.get("discord_id");
 
-    const backendBase = "https://fr1ev-roblox-oauth.onrender.com";
-    const linkButton = document.getElementById("linkButton");
+    const actionBtn = document.getElementById("actionBtn");
+    const statusBox = document.getElementById("statusBox");
 
-    if (discordId) {
-      linkButton.href = `${backendBase}/roblox/link?discord_id=${encodeURIComponent(discordId)}`;
-    } else {
-      linkButton.href = "#";
-      linkButton.textContent = "Open from Discord";
+    const workerBase = "https://fr1ev-auth.fr1evvv.workers.dev";
+
+    function setMissingState() {
+      actionBtn.textContent = "Open from Discord";
+      actionBtn.href = "#";
+      actionBtn.classList.add("loading");
+      actionBtn.onclick = (e) => e.preventDefault();
+
+      statusBox.textContent = "No Discord ID was found in the page URL. Open this page from your Discord bot so it can load your link status.";
+      statusBox.className = "status-box bad";
     }
+
+    function setLinkedState(data) {
+      actionBtn.textContent = "Unlink Roblox";
+      actionBtn.href = `https://fr1ev.github.io/fr1ev-security/roblox/unlink.html?discord_id=${encodeURIComponent(discordId)}`;
+      actionBtn.classList.remove("loading");
+
+      const username = data.roblox_username ? `Linked as ${data.roblox_username}.` : "Your Roblox account is currently linked.";
+      statusBox.textContent = `${username} You can unlink it from here if you want to disconnect your FR1EV Security Roblox connection.`;
+      statusBox.className = "status-box good";
+    }
+
+    function setUnlinkedState() {
+      actionBtn.textContent = "Link Roblox";
+      actionBtn.href = `${workerBase}/roblox/link?discord_id=${encodeURIComponent(discordId)}`;
+      actionBtn.classList.remove("loading");
+
+      statusBox.textContent = "No linked Roblox account was found for this Discord account. Press Link Roblox to start the secure Roblox OAuth process.";
+      statusBox.className = "status-box";
+    }
+
+    async function checkStatus() {
+      if (!discordId) {
+        setMissingState();
+        return;
+      }
+
+      try {
+        const res = await fetch(`${workerBase}/api/linked?discord_id=${encodeURIComponent(discordId)}`);
+        const data = await res.json();
+
+        if (data.linked) {
+          setLinkedState(data);
+        } else {
+          setUnlinkedState();
+        }
+      } catch (error) {
+        actionBtn.textContent = "Link Roblox";
+        actionBtn.href = `${workerBase}/roblox/link?discord_id=${encodeURIComponent(discordId)}`;
+        actionBtn.classList.remove("loading");
+
+        statusBox.textContent = "Could not check your current link status right now, but you can still try linking your Roblox account.";
+        statusBox.className = "status-box bad";
+      }
+    }
+
+    checkStatus();
   </script>
 </body>
 </html>
