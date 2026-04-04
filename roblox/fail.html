@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FR1EV Security - Link Failed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+    .box {
+      max-width: 700px;
+      background: #121a30;
+      border: 1px solid #223055;
+      border-radius: 16px;
+      padding: 32px;
+    }
+    a {
+      color: #7db2ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Roblox linking failed</h1>
+    <p id="msg">We could not complete the Roblox link.</p>
+    <p>Please return to Discord and try again.</p>
+    <p><a href="https://fr1ev.github.io/fr1ev-security/">Back to FR1EV Security</a></p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+    if (error) {
+      document.getElementById("msg").textContent =
+        `We could not complete the Roblox link. Error: ${error}`;
+    }
+  </script>
+</body>
+</html>
