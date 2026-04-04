@@ -4,297 +4,138 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FR1EV Security | Roblox Link</title>
-  <meta name="theme-color" content="#0b1220" />
+
   <style>
-    :root {
-      --bg-1: #040816;
-      --bg-2: #091327;
-      --card: rgba(16, 24, 48, 0.94);
-      --card-border: rgba(90, 120, 255, 0.18);
-      --line: rgba(148, 163, 184, 0.16);
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --blue-1: #3b82f6;
-      --blue-2: #2563eb;
-      --blue-3: #1d4ed8;
-      --gray-btn: rgba(51, 65, 85, 0.78);
-      --gray-btn-border: rgba(148, 163, 184, 0.18);
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 25%),
-        radial-gradient(circle at right bottom, rgba(37, 99, 235, 0.12), transparent 25%),
-        linear-gradient(135deg, var(--bg-1), var(--bg-2));
-    }
-
     body {
-      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #040816, #091327);
+      color: white;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 28px 18px;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .wrap {
       width: 100%;
-      max-width: 1080px;
+      max-width: 1000px;
+      padding: 20px;
     }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.16);
-      background: rgba(15, 23, 42, 0.74);
-      color: var(--text);
+    .back {
+      margin-bottom: 20px;
+    }
+
+    .back a {
+      color: white;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      transition: 0.18s ease;
-      backdrop-filter: blur(8px);
-    }
-
-    .back-btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(59, 130, 246, 0.34);
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.16);
+      font-weight: bold;
+      background: #111827;
+      padding: 10px 15px;
+      border-radius: 10px;
     }
 
     .card {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(16, 24, 48, 0.97), rgba(14, 22, 44, 0.93));
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 56px 48px;
+      background: #0f172a;
+      padding: 40px;
+      border-radius: 20px;
       text-align: center;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(37, 99, 235, 0.04));
-      pointer-events: none;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(59, 130, 246, 0.12);
-      border: 1px solid rgba(59, 130, 246, 0.24);
-      color: #c7d2fe;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      margin-bottom: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
     }
 
     h1 {
       margin: 0;
-      font-size: 58px;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
+      font-size: 40px;
     }
 
-    .subtitle {
-      margin: 22px auto 0;
-      max-width: 860px;
-      color: #d7deea;
-      font-size: 21px;
-      line-height: 1.65;
+    .desc {
+      margin-top: 15px;
+      color: #cbd5e1;
+      font-size: 16px;
     }
 
     .buttons {
-      margin-top: 34px;
+      margin-top: 30px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
     .btn {
-      min-width: 215px;
-      padding: 18px 24px;
-      border-radius: 18px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-weight: bold;
       text-decoration: none;
-      font-weight: 800;
-      font-size: 18px;
-      transition: 0.18s ease;
-      border: 1px solid transparent;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
+      transition: 0.2s;
+      min-width: 180px;
       text-align: center;
     }
 
     .btn-primary {
+      background: #2563eb;
       color: white;
-      background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      background: linear-gradient(135deg, #4f8ff8, var(--blue-3));
+      background: #1d4ed8;
     }
 
     .btn-secondary {
-      color: var(--text);
-      background: var(--gray-btn);
-      border-color: var(--gray-btn-border);
+      background: #1f2937;
+      color: #e5e7eb;
     }
 
     .btn-secondary:hover {
-      transform: translateY(-1px);
-      border-color: rgba(59, 130, 246, 0.24);
+      background: #374151;
     }
 
-    .status-box {
-      margin: 30px auto 0;
-      max-width: 700px;
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: rgba(2, 6, 23, 0.34);
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.6;
-      white-space: pre-wrap;
-    }
-
-    .status-box.good {
-      color: #bfdbfe;
-      border-color: rgba(59, 130, 246, 0.22);
-      background: rgba(59, 130, 246, 0.07);
-    }
-
-    .status-box.bad {
-      color: #fecaca;
-      border-color: rgba(239, 68, 68, 0.18);
-      background: rgba(239, 68, 68, 0.07);
-    }
-
-    .fineprint {
-      margin-top: 26px;
-      color: #7f8ea8;
+    .status {
+      margin-top: 20px;
       font-size: 14px;
-      line-height: 1.7;
+      color: #9ca3af;
     }
 
-    .loading {
-      opacity: 0.9;
+    .good {
+      color: #60a5fa;
     }
 
-    @media (max-width: 900px) {
-      .card {
-        padding: 42px 24px;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      .subtitle {
-        font-size: 18px;
-      }
-
-      .btn {
-        min-width: 200px;
-        width: 100%;
-        max-width: 320px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      body {
-        padding: 20px 14px;
-      }
-
-      .card {
-        padding: 34px 18px;
-        border-radius: 22px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .subtitle {
-        font-size: 16px;
-      }
-
-      .buttons {
-        gap: 12px;
-      }
-
-      .btn {
-        min-width: 100%;
-        font-size: 17px;
-        padding: 16px 18px;
-      }
-
-      .back-btn {
-        width: 100%;
-        justify-content: center;
-      }
+    .bad {
+      color: #f87171;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <a class="back-btn" href="https://fr1ev.github.io/fr1ev-security/" aria-label="Back to main site">
-      <span style="font-size:18px;">←</span>
-      <span>Back to Main Site</span>
-    </a>
+
+    <div class="back">
+      <a href="https://fr1ev.github.io/fr1ev-security/">← Back</a>
+    </div>
 
     <div class="card">
-      <div class="content">
-        <div class="badge">FR1EV SECURITY</div>
+      <h1>FR1EV Security Roblox Link</h1>
 
-        <h1>FR1EV Security Roblox Link</h1>
-
-        <p class="subtitle">
-          Link your Roblox account to FR1EV Security for verification, account connection features, role sync, and future Roblox-based server systems.
-        </p>
-
-        <div class="buttons">
-          <a id="actionBtn" class="btn btn-primary loading" href="#">Checking link status...</a>
-          <a class="btn btn-secondary" href="https://fr1ev.github.io/fr1ev-security/roblox/tos.html">Roblox Terms</a>
-          <a class="btn btn-secondary" href="https://fr1ev.github.io/fr1ev-security/roblox/privacy.html">Roblox Privacy</a>
-        </div>
-
-        <div id="statusBox" class="status-box">
-          Checking your Roblox link status...
-        </div>
-
-        <div class="fineprint">
-          Open this page from Discord so your Discord ID can be passed in the link automatically.
-        </div>
+      <div class="desc">
+        Link your Roblox account to FR1EV Security for verification and role sync.
       </div>
+
+      <div class="buttons">
+        <!-- LEFT -->
+        <a class="btn btn-secondary" href="https://fr1ev.github.io/fr1ev-security/roblox/tos.html">TOS</a>
+
+        <!-- MIDDLE (MAIN ACTION) -->
+        <a id="actionBtn" class="btn btn-primary" href="#">Loading...</a>
+
+        <!-- RIGHT -->
+        <a class="btn btn-secondary" href="https://fr1ev.github.io/fr1ev-security/roblox/privacy.html">Privacy</a>
+
+        <!-- DISCORD -->
+        <a class="btn btn-secondary" href="https://discord.gg/YOURINVITE">Discord</a>
+      </div>
+
+      <div id="status" class="status">Checking link status...</div>
     </div>
   </div>
 
@@ -303,65 +144,37 @@
     const discordId = params.get("discord_id");
 
     const actionBtn = document.getElementById("actionBtn");
-    const statusBox = document.getElementById("statusBox");
+    const status = document.getElementById("status");
 
-    const workerBase = "https://fr1ev-auth.fr1evvv.workers.dev";
+    const worker = "https://fr1ev-auth.fr1evvv.workers.dev";
 
-    function setMissingState() {
+    if (!discordId) {
       actionBtn.textContent = "Open from Discord";
       actionBtn.href = "#";
-      actionBtn.classList.add("loading");
-      actionBtn.onclick = (e) => e.preventDefault();
-
-      statusBox.textContent = "No Discord ID was found in the page URL. Open this page from your Discord bot so it can load your link status.";
-      statusBox.className = "status-box bad";
+      status.textContent = "No Discord ID detected. Open this from the bot.";
+      status.classList.add("bad");
+    } else {
+      fetch(`${worker}/api/linked?discord_id=${discordId}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.linked) {
+            actionBtn.textContent = "Unlink Roblox";
+            actionBtn.href = `https://fr1ev.github.io/fr1ev-security/roblox/unlink.html?discord_id=${discordId}`;
+            status.textContent = `Linked as ${data.roblox_username}`;
+            status.classList.add("good");
+          } else {
+            actionBtn.textContent = "Link Roblox";
+            actionBtn.href = `${worker}/roblox/link?discord_id=${discordId}`;
+            status.textContent = "No Roblox account linked.";
+          }
+        })
+        .catch(() => {
+          actionBtn.textContent = "Link Roblox";
+          actionBtn.href = `${worker}/roblox/link?discord_id=${discordId}`;
+          status.textContent = "Could not check status.";
+          status.classList.add("bad");
+        });
     }
-
-    function setLinkedState(data) {
-      actionBtn.textContent = "Unlink Roblox";
-      actionBtn.href = `https://fr1ev.github.io/fr1ev-security/roblox/unlink.html?discord_id=${encodeURIComponent(discordId)}`;
-      actionBtn.classList.remove("loading");
-
-      const username = data.roblox_username ? `Linked as ${data.roblox_username}.` : "Your Roblox account is currently linked.";
-      statusBox.textContent = `${username} You can unlink it from here if you want to disconnect your FR1EV Security Roblox connection.`;
-      statusBox.className = "status-box good";
-    }
-
-    function setUnlinkedState() {
-      actionBtn.textContent = "Link Roblox";
-      actionBtn.href = `${workerBase}/roblox/link?discord_id=${encodeURIComponent(discordId)}`;
-      actionBtn.classList.remove("loading");
-
-      statusBox.textContent = "No linked Roblox account was found for this Discord account. Press Link Roblox to start the secure Roblox OAuth process.";
-      statusBox.className = "status-box";
-    }
-
-    async function checkStatus() {
-      if (!discordId) {
-        setMissingState();
-        return;
-      }
-
-      try {
-        const res = await fetch(`${workerBase}/api/linked?discord_id=${encodeURIComponent(discordId)}`);
-        const data = await res.json();
-
-        if (data.linked) {
-          setLinkedState(data);
-        } else {
-          setUnlinkedState();
-        }
-      } catch (error) {
-        actionBtn.textContent = "Link Roblox";
-        actionBtn.href = `${workerBase}/roblox/link?discord_id=${encodeURIComponent(discordId)}`;
-        actionBtn.classList.remove("loading");
-
-        statusBox.textContent = "Could not check your current link status right now, but you can still try linking your Roblox account.";
-        statusBox.className = "status-box bad";
-      }
-    }
-
-    checkStatus();
   </script>
 </body>
 </html>
