@@ -3,39 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FR1EV Security - Linked</title>
+  <title>Link Successful</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background: #0b1020;
       color: white;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      margin: 0;
-      text-align: center;
       padding: 20px;
+      text-align: center;
     }
     .box {
       max-width: 700px;
       background: #121a30;
       border: 1px solid #223055;
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 32px;
     }
-    a {
-      color: #7db2ff;
-      text-decoration: none;
-    }
+    a { color: #8fb7ff; }
   </style>
 </head>
 <body>
   <div class="box">
-    <h1>Roblox account linked</h1>
-    <p id="msg">Your Roblox account was linked successfully.</p>
-    <p>You can close this page and return to Discord.</p>
-    <p><a href="https://fr1ev.github.io/fr1ev-security/">Back to FR1EV Security</a></p>
+    <h1>Roblox linked successfully</h1>
+    <p id="msg">Your Roblox account has been linked.</p>
+    <p>You can now close this page and return to Discord.</p>
+    <p><a href="./index.html">Back</a></p>
   </div>
 
   <script>
@@ -43,7 +40,7 @@
     const user = params.get("roblox_user");
     if (user) {
       document.getElementById("msg").textContent =
-        `Your Roblox account ${user} was linked successfully.`;
+        `Your Roblox account ${user} has been linked.`;
     }
   </script>
 </body>
