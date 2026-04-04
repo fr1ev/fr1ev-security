@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FR1EV Security Roblox Link</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+    .box {
+      max-width: 760px;
+      width: 100%;
+      background: #121a30;
+      border: 1px solid #223055;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    h1 {
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    a.button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      background: #2d5fff;
+      font-weight: bold;
+    }
+    a.secondary {
+      background: #1a2442;
+      border: 1px solid #31436f;
+    }
+    .small {
+      margin-top: 20px;
+      opacity: 0.8;
+      font-size: 14px;
+    }
+    code {
+      background: #0a1328;
+      padding: 2px 6px;
+      border-radius: 6px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>FR1EV Security Roblox Link</h1>
+    <p>
+      Link your Roblox account to FR1EV Security for verification and Roblox connection features.
+    </p>
+
+    <div class="buttons">
+      <a class="button" id="linkButton" href="#">Link Roblox</a>
+      <a class="button secondary" href="./tos.html">Roblox Terms</a>
+      <a class="button secondary" href="./privacy.html">Roblox Privacy</a>
+    </div>
+
+    <p class="small">
+      This page is the public website part. The actual secure Roblox OAuth flow should continue on your backend.
+    </p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const discordId = params.get("discord_id");
+
+    const backendBase = "https://fr1ev-roblox-oauth.onrender.com";
+    const linkButton = document.getElementById("linkButton");
+
+    if (discordId) {
+      linkButton.href = `${backendBase}/roblox/link?discord_id=${encodeURIComponent(discordId)}`;
+    } else {
+      linkButton.href = "#";
+      linkButton.textContent = "Open from Discord";
+    }
+  </script>
+</body>
+</html>
