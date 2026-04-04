@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FR1EV Security - Callback</title>
-  <meta http-equiv="refresh" content="0;url=https://fr1ev-auth.fr1evvv.workers.dev/roblox/finish" />
   <style>
     body {
       margin: 0;
@@ -18,6 +17,7 @@
       text-align: center;
       padding: 20px;
     }
+
     .box {
       max-width: 700px;
       background: #121f4a;
@@ -25,12 +25,24 @@
       border-radius: 20px;
       padding: 32px;
     }
+
+    .small {
+      opacity: 0.8;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    a {
+      color: #9ec1ff;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <div class="box">
     <h1>Completing Roblox link...</h1>
     <p id="msg">Please wait while we finish your sign-in.</p>
+    <p class="small" id="details"></p>
   </div>
 
   <script>
@@ -39,15 +51,20 @@
     const state = params.get("state");
     const error = params.get("error");
 
+    const msg = document.getElementById("msg");
+    const details = document.getElementById("details");
+
     if (error) {
-      window.location.href =
-        `https://fr1ev.github.io/fr1ev-security/roblox/fail.html?error=${encodeURIComponent(error)}`;
+      window.location.replace(
+        `https://fr1ev.github.io/fr1ev-security/roblox/fail.html?error=${encodeURIComponent(error)}`
+      );
     } else if (code && state) {
-      window.location.href =
-        `https://fr1ev-auth.fr1evvv.workers.dev/roblox/finish?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+      window.location.replace(
+        `https://fr1ev-auth.fr1evvv.workers.dev/roblox/finish?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`
+      );
     } else {
-      document.getElementById("msg").textContent =
-        "Missing callback data.";
+      msg.textContent = "Missing callback data.";
+      details.innerHTML = 'No <code>code</code> or <code>state</code> was found in the URL.';
     }
   </script>
 </body>
