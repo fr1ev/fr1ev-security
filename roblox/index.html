@@ -38,25 +38,35 @@
 
     .card {
       background: #0f172a;
-      padding: 40px;
-      border-radius: 20px;
+      padding: 50px;
+      border-radius: 22px;
       text-align: center;
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      box-shadow: 0 0 40px rgba(0,0,0,0.6);
     }
 
+    /* 🔥 COOL TITLE */
     h1 {
       margin: 0;
-      font-size: 40px;
+      font-size: 52px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #60a5fa, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
+    /* ✨ SUBTEXT (better looking) */
     .desc {
-      margin-top: 15px;
+      margin-top: 20px;
       color: #cbd5e1;
-      font-size: 16px;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 35px;
       display: flex;
       justify-content: center;
       gap: 15px;
@@ -64,25 +74,30 @@
     }
 
     .btn {
-      padding: 15px 20px;
-      border-radius: 12px;
+      padding: 16px 22px;
+      border-radius: 14px;
       font-weight: bold;
       text-decoration: none;
       display: inline-block;
       transition: 0.2s;
-      min-width: 180px;
+      min-width: 190px;
       text-align: center;
+      font-size: 16px;
     }
 
+    /* 🔵 MAIN BUTTON */
     .btn-primary {
-      background: #2563eb;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
       color: white;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
     }
 
     .btn-primary:hover {
-      background: #1d4ed8;
+      background: linear-gradient(135deg, #4f8ff8, #1d4ed8);
+      transform: translateY(-1px);
     }
 
+    /* ⚫ SIDE BUTTONS */
     .btn-secondary {
       background: #1f2937;
       color: #e5e7eb;
@@ -90,11 +105,12 @@
 
     .btn-secondary:hover {
       background: #374151;
+      transform: translateY(-1px);
     }
 
     .status {
-      margin-top: 20px;
-      font-size: 14px;
+      margin-top: 22px;
+      font-size: 15px;
       color: #9ca3af;
     }
 
@@ -118,14 +134,15 @@
       <h1>FR1EV Security Roblox Link</h1>
 
       <div class="desc">
-        Link your Roblox account to FR1EV Security for verification and role sync.
+        Link your Roblox account to FR1EV Security to unlock verification, advanced role syncing,
+        Roblox connection features, and future integrations across your Discord servers.
       </div>
 
       <div class="buttons">
         <!-- LEFT -->
         <a class="btn btn-secondary" href="https://fr1ev.github.io/fr1ev-security/roblox/tos.html">TOS</a>
 
-        <!-- MIDDLE (MAIN ACTION) -->
+        <!-- MIDDLE -->
         <a id="actionBtn" class="btn btn-primary" href="#">Loading...</a>
 
         <!-- RIGHT -->
@@ -151,7 +168,7 @@
     if (!discordId) {
       actionBtn.textContent = "Open from Discord";
       actionBtn.href = "#";
-      status.textContent = "No Discord ID detected. Open this from the bot.";
+      status.textContent = "This page must be opened from Discord.";
       status.classList.add("bad");
     } else {
       fetch(`${worker}/api/linked?discord_id=${discordId}`)
