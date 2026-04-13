@@ -130,14 +130,57 @@ footer a{color:#dbeafe;font-weight:800}
 </footer>
 
 <script>
-try {
-  const discordSdk = new DiscordSDK("1453017552551936000");
-  discordSdk.ready().catch(() => {});
-} catch {}
-const statusUrl = "https://fr1ev.github.io/fr1ev-security/status.json?v=" + Date.now();
-function setOnline(diff){document.getElementById("botStatus").innerHTML='<span class="status-dot online"></span> Bot Online (last ping '+diff+'s ago)'}
-function setOffline(reason){document.getElementById("botStatus").innerHTML='<span class="status-dot offline"></span> Bot Offline'+(reason?" ("+reason+")":"")}
-fetch(statusUrl,{cache:"no-store"}).then(res=>{if(!res.ok)throw new Error("HTTP "+res.status);return res.json()}).then(data=>{const now=Math.floor(Date.now()/1000);const last=Number(data.last_heartbeat);const diff=now-last;if(!last||isNaN(last))return setOffline("invalid status");if(diff<1200)return setOnline(diff);return setOffline("last ping "+diff+"s ago")}).catch(()=>setOffline("fetch failed"));
+(function(){
+  try {
+    if (window.DiscordSDK) {
+      const discordSdk = new DiscordSDK("1453017552551936000");
+      discordSdk.ready().catch(function(){});
+    }
+  } catch {}
+
+  const box = document.getElementById("botStatus");
+  const statusUrl = "/fr1ev-security/status.json?v=" + Date.now();
+
+  function setStatus(dot, text) {
+    if (!box) return;
+    box.innerHTML = '<span class="status-dot ' + dot + '"></span> ' + text;
+  }
+
+  function online(diff) {
+    setStatus("online", "Bot Online (heartbeat " + diff + "s ago)");
+  }
+
+  function offline(reason) {
+    setStatus("offline", "Bot Offline" + (reason ? " (" + reason + ")" : ""));
+  }
+
+  const fallbackTimer = window.setTimeout(function(){
+    offline("heartbeat timeout");
+  }, 8000);
+
+  fetch(statusUrl, { cache: "no-store" })
+    .then(function(res){
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(function(data){
+      window.clearTimeout(fallbackTimer);
+      const last = Number(data.last_heartbeat || 0);
+      const offlineAfter = Number(data.offline_after || 900);
+      const now = Math.floor(Date.now() / 1000);
+      const diff = now - last;
+
+      if (!last || Number.isNaN(last)) return offline("bad heartbeat");
+      if (diff < 0) return online(0);
+      if (data.online !== false && diff <= offlineAfter) return online(diff);
+      return offline("last heartbeat " + diff + "s ago");
+    })
+    .catch(function(error){
+      window.clearTimeout(fallbackTimer);
+      offline("heartbeat fetch failed");
+      console.warn("FR1EV heartbeat status failed:", error);
+    });
+})();
 </script>
 </body>
 </html>
