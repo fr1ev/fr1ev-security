@@ -119,7 +119,9 @@ async function api(path, options = {}) {
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok || data.ok === false) {
-    throw new Error(data.error || `HTTP ${res.status}`);
+    const error = new Error(data.error || `HTTP ${res.status}`);
+    error.status = res.status;
+    throw error;
   }
   return data;
 }
@@ -229,9 +231,14 @@ async function loadMe() {
     log(`Logged in as ${state.user.username}.`);
   } catch (error) {
     log(error.message);
-    state.token = "";
-    state.isOwner = false;
-    localStorage.removeItem("fr1evDiscordToken");
+    if (error.status === 401 || /expired|missing discord access token/i.test(error.message)) {
+      state.token = "";
+      state.isOwner = false;
+      localStorage.removeItem("fr1evDiscordToken");
+      els.userBox.textContent = "Discord login expired. Login again.";
+    } else {
+      els.userBox.textContent = "Logged in with Discord. Connect or start the Bot API to load servers.";
+    }
   }
   renderSession();
 }
