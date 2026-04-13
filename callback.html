@@ -22,8 +22,8 @@ const token = hash.get("access_token");
 const error = params.get("error") || hash.get("error");
 const errorDescription = params.get("error_description") || hash.get("error_description");
 const card = document.getElementById("card");
-const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
-const dashboardUrl = isLocal ? "/dashboard/" : "/fr1ev-security/dashboard/";
+const isGitHubPages = location.hostname.endsWith("github.io");
+const dashboardUrl = isGitHubPages ? "/fr1ev-security/dashboard/" : "/dashboard/";
 
 if (token) {
   localStorage.setItem("fr1evDiscordToken", token);

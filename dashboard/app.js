@@ -73,6 +73,9 @@ function defaultApiBase() {
   if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
     return location.origin;
   }
+  if (!location.hostname.endsWith("github.io")) {
+    return location.origin;
+  }
   return "";
 }
 
@@ -84,10 +87,10 @@ function saveState() {
 }
 
 function redirectUri() {
-  if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
-    return new URL("/callback.html", location.origin).toString();
-  }
-  return new URL("/fr1ev-security/callback.html", location.origin).toString();
+  const path = location.hostname.endsWith("github.io")
+    ? "/fr1ev-security/callback.html"
+    : "/callback.html";
+  return new URL(path, location.origin).toString();
 }
 
 function loginUrl() {
