@@ -22,7 +22,8 @@ const token = hash.get("access_token");
 const error = params.get("error") || hash.get("error");
 const errorDescription = params.get("error_description") || hash.get("error_description");
 const card = document.getElementById("card");
-const dashboardUrl = "/fr1ev-security/dashboard/";
+const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+const dashboardUrl = isLocal ? "/dashboard/" : "/fr1ev-security/dashboard/";
 
 if (token) {
   localStorage.setItem("fr1evDiscordToken", token);

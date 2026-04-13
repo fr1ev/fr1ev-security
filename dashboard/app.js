@@ -4,6 +4,7 @@ const DASH_KEY = "fr1ev-dashboard-state-v2";
 const state = {
   token: localStorage.getItem("fr1evDiscordToken") || "",
   apiBase: "",
+  apiOnline: false,
   user: null,
   isOwner: false,
   guilds: [],
@@ -54,15 +55,25 @@ const els = {
   sendAnnouncement: document.querySelector("#sendAnnouncement"),
 };
 
+let lastLogMessage = "";
+let lastLogAt = 0;
+
 function loadState() {
   try {
     const saved = JSON.parse(localStorage.getItem(DASH_KEY) || "{}");
-    state.apiBase = saved.apiBase || "http://127.0.0.1:8080";
+    state.apiBase = saved.apiBase || defaultApiBase();
     state.selectedGuildId = saved.selectedGuildId || "";
   } catch {
-    state.apiBase = "http://127.0.0.1:8080";
+    state.apiBase = defaultApiBase();
   }
   els.apiBase.value = state.apiBase;
+}
+
+function defaultApiBase() {
+  if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
+    return location.origin;
+  }
+  return "";
 }
 
 function saveState() {
@@ -73,6 +84,9 @@ function saveState() {
 }
 
 function redirectUri() {
+  if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
+    return new URL("/callback.html", location.origin).toString();
+  }
   return new URL("/fr1ev-security/callback.html", location.origin).toString();
 }
 
@@ -98,7 +112,13 @@ function parseToken() {
   history.replaceState({}, document.title, location.pathname + location.search);
 }
 
-function log(message) {
+function log(message, once = false) {
+  const now = Date.now();
+  if (once && message === lastLogMessage && now - lastLogAt < 15000) {
+    return;
+  }
+  lastLogMessage = message;
+  lastLogAt = now;
   const stamp = new Date().toLocaleTimeString();
   els.logBox.textContent = `[${stamp}] ${message}\n${els.logBox.textContent}`.trim();
 }
@@ -109,8 +129,8 @@ function cleanApiBase() {
 
 async function api(path, options = {}) {
   if (!state.token) throw new Error("Login with Discord first.");
-  if (!state.apiBase) throw new Error("Set the bot API URL first.");
-  const res = await fetch(`${cleanApiBase()}${path}`, {
+  if (!state.apiBase) throw new Error("Paste your Bot API URL, press Save API, then Test.");
+  return requestJson(`${cleanApiBase()}${path}`, {
     ...options,
     headers: {
       "Authorization": `Bearer ${state.token}`,
@@ -118,6 +138,23 @@ async function api(path, options = {}) {
       ...(options.headers || {}),
     },
   });
+}
+
+async function publicApi(path) {
+  if (!state.apiBase) throw new Error("Paste your Bot API URL, press Save API, then Test.");
+  return requestJson(`${cleanApiBase()}${path}`);
+}
+
+async function requestJson(url, options = {}) {
+  let res;
+  try {
+    res = await fetch(url, options);
+  } catch (error) {
+    const friendly = new Error(apiFetchHelp(error));
+    friendly.status = 0;
+    throw friendly;
+  }
+
   const data = await res.json().catch(() => ({}));
   if (!res.ok || data.ok === false) {
     const error = new Error(data.error || `HTTP ${res.status}`);
@@ -127,17 +164,19 @@ async function api(path, options = {}) {
   return data;
 }
 
-async function publicApi(path) {
-  if (!state.apiBase) throw new Error("Set the bot API URL first.");
-  const res = await fetch(`${cleanApiBase()}${path}`);
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok || data.ok === false) throw new Error(data.error || `HTTP ${res.status}`);
-  return data;
+function apiFetchHelp(error) {
+  if (location.protocol === "https:" && state.apiBase.startsWith("http://")) {
+    return "Bot API blocked by the browser. GitHub Pages needs an HTTPS tunnel URL, or open the local dashboard at http://127.0.0.1:8080/dashboard/.";
+  }
+  if (/Failed to fetch/i.test(error.message || "")) {
+    return "Bot API is not reachable. Restart the bot, then press Test. If you are using GitHub Pages, paste an HTTPS tunnel URL.";
+  }
+  return error.message || "Bot API request failed.";
 }
 
 function renderSession() {
   els.sessionState.textContent = state.token ? "Logged in" : "Offline";
-  els.apiState.textContent = state.apiBase ? "Set" : "Not set";
+  els.apiState.textContent = state.apiOnline ? "Online" : (state.apiBase ? "Not tested" : "Not set");
   els.loginBtn.classList.toggle("hidden", Boolean(state.token));
   els.logoutBtn.classList.toggle("hidden", !state.token);
   els.guildState.textContent = selectedGuild()?.name || "None";
@@ -146,6 +185,30 @@ function renderSession() {
   document.querySelectorAll(".owner-only").forEach((item) => {
     item.classList.toggle("hidden", !state.isOwner);
   });
+}
+
+async function ensureApiOnline(showSuccess = false) {
+  if (!state.apiBase) {
+    state.apiOnline = false;
+    renderSession();
+    log("Paste your Bot API URL, press Save API, then Test.", true);
+    return false;
+  }
+
+  try {
+    const data = await publicApi("/health");
+    state.apiOnline = true;
+    renderSession();
+    if (showSuccess) {
+      log(`API online: ${data.bot || "bot ready"}.`);
+    }
+    return true;
+  } catch (error) {
+    state.apiOnline = false;
+    renderSession();
+    log(error.message, true);
+    return false;
+  }
 }
 
 function selectedGuild() {
@@ -245,6 +308,10 @@ async function loadMe() {
     renderSession();
     return;
   }
+  if (!state.apiOnline && !(await ensureApiOnline(false))) {
+    els.userBox.textContent = "Logged in with Discord. Connect or start the Bot API to load servers.";
+    return;
+  }
   try {
     const data = await api("/api/me");
     state.user = data.user;
@@ -266,6 +333,9 @@ async function loadMe() {
 }
 
 async function loadGuilds() {
+  if (!state.apiOnline && !(await ensureApiOnline(false))) {
+    return;
+  }
   try {
     const data = await api("/api/guilds");
     state.guilds = data.guilds || [];
@@ -393,6 +463,7 @@ function setupEvents() {
   });
   els.saveApi.addEventListener("click", () => {
     state.apiBase = els.apiBase.value.trim();
+    state.apiOnline = false;
     saveState();
     renderSession();
     log("API URL saved.");
@@ -400,13 +471,10 @@ function setupEvents() {
   els.testApi.addEventListener("click", async () => {
     state.apiBase = els.apiBase.value.trim();
     saveState();
-    try {
-      const data = await publicApi("/health");
-      els.apiState.textContent = "Online";
-      log(`API online: ${data.bot || "bot ready"}.`);
-    } catch (error) {
-      els.apiState.textContent = "Offline";
-      log(error.message);
+    const ok = await ensureApiOnline(true);
+    if (ok && state.token) {
+      await loadMe();
+      await loadGuilds();
     }
   });
   els.loadGuilds.addEventListener("click", loadGuilds);
@@ -427,8 +495,18 @@ setupEvents();
 renderSession();
 renderGuilds();
 renderOverview();
-loadMe().then(() => {
-  if (state.token) {
-    return loadGuilds();
+bootstrap();
+
+async function bootstrap() {
+  if (!state.token) {
+    log("Login with Discord to load your servers.", true);
+    return;
   }
-});
+  const ok = await ensureApiOnline(false);
+  if (!ok) {
+    els.userBox.textContent = "Logged in with Discord. Connect or start the Bot API to load servers.";
+    return;
+  }
+  await loadMe();
+  await loadGuilds();
+}
