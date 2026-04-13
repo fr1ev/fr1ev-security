@@ -3,239 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="google-site-verification" content="CCaXhxuBgHjBknScV_EMFCmz6NVOu2kSI3Sb2W1lOSU" />
-
+<meta name="google-site-verification" content="CCaXhxuBgHjBknScV_EMFCmz6NVOu2kSI3Sb2W1lOSU">
 <title>FR1EV SECURITY | Discord Moderation & Protection Bot</title>
-<meta name="description" content="FR1EV SECURITY is an advanced Discord moderation and protection bot by fr1ev with smart safeguards, AI integration, role-based access, and reliable server security tools.">
-<meta name="keywords" content="FR1EV SECURITY, fr1ev, notfr1ev, Discord bot, moderation bot, Discord security bot, Discord protection, AI Discord bot">
+<meta name="description" content="FR1EV SECURITY is an advanced Discord moderation and protection bot by fr1ev with dashboard controls, AI tools, automod, tickets, leveling, and server security.">
+<meta name="keywords" content="FR1EV SECURITY, fr1ev, Discord bot, moderation bot, Discord dashboard, Discord security bot, AI Discord bot">
 <meta name="author" content="fr1ev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://fr1ev.github.io/fr1ev-security/">
-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fr1ev.github.io/fr1ev-security/">
 <meta property="og:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
-<meta property="og:description" content="Advanced moderation & intelligent protection for Discord servers.">
+<meta property="og:description" content="Advanced moderation, automod, AI tools, tickets, and dashboard control for Discord servers.">
 <meta property="og:image" content="https://fr1ev.github.io/fr1ev-security/favicon.ico">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
-<meta name="twitter:description" content="Advanced moderation & intelligent protection for Discord servers.">
-<meta name="twitter:image" content="https://fr1ev.github.io/fr1ev-security/favicon.ico">
-
-<meta name="theme-color" content="#5865F2">
-
+<meta name="theme-color" content="#2563eb">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-<script src="https://unpkg.com/@discord/embedded-app-sdk"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Inter',sans-serif; background:linear-gradient(135deg,#0a0f1a,#0f172a); color:white; }
-header { padding:120px 20px; text-align:center; }
-h1 { font-size:60px; margin:0; font-weight:800; }
-h2 { font-size:34px; margin-bottom:18px; }
-.glow { color:#5865F2; }
-.subtitle { font-size:20px; opacity:0.7; margin-top:15px; }
-
-.buttons { margin-top:60px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
-.profile-row { margin-top:24px; display:flex; justify-content:center; }
-
-.button {
-padding:14px 36px;
-background:linear-gradient(135deg,#5865F2,#4752C4);
-color:white;
-text-decoration:none;
-border-radius:12px;
-font-weight:600;
-transition:0.25s ease;
-display:inline-block;
-}
-
-.button:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(88,101,242,0.5); }
-.main-button { transform:scale(1.05); box-shadow:0 0 25px rgba(88,101,242,0.6); }
-
-section { padding:80px 20px; text-align:center; }
-
-.comparison {
-max-width:900px;
-margin:40px auto 0 auto;
-border-collapse:collapse;
-width:100%;
-}
-
-.comparison th, .comparison td {
-padding:14px;
-border:1px solid #1f2937;
-}
-
-.comparison th { background:#111827; }
-
-.status-box {
-margin-top:30px;
-font-size:18px;
-font-weight:600;
-}
-
-.status-dot {
-display:inline-block;
-width:10px;
-height:10px;
-border-radius:50%;
-margin-right:8px;
-}
-
-.online { background:#4ade80; box-shadow:0 0 12px #4ade80; }
-.offline { background:#ef4444; box-shadow:0 0 12px #ef4444; }
-
-.seo-text {
-max-width:900px;
-margin:18px auto 0 auto;
-font-size:16px;
-line-height:1.7;
-color:rgba(255,255,255,0.82);
-}
-
-footer { padding:30px; text-align:center; opacity:0.6; font-size:14px; border-top:1px solid #1f2937; }
+:root{--bg:#06142f;--bg2:#0b1f4d;--panel:#0f2a66;--panel2:#123a90;--line:#2f66d4;--text:#f8fbff;--muted:#b7cdfb;--blue:#3b82f6;--blue2:#2563eb;--cyan:#38bdf8;--green:#22c55e}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,var(--bg),var(--bg2));color:var(--text);letter-spacing:0}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+header{min-height:92vh;display:grid;place-items:center;text-align:center;padding:80px 0 48px}
+.badge{display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(59,130,246,.18);color:#dbeafe;font-weight:800}
+h1{margin:18px 0 0;font-size:clamp(42px,8vw,82px);line-height:1;font-weight:900;overflow-wrap:anywhere}
+.glow{color:#93c5fd;text-shadow:0 0 30px rgba(147,197,253,.55)}
+.subtitle{max-width:790px;margin:18px auto 0;color:var(--muted);font-size:20px;line-height:1.6}
+.buttons{margin-top:42px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-weight:800;border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 34px rgba(37,99,235,.28);transition:.2s ease}
+.button:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(37,99,235,.45)}
+.button.dark{background:rgba(15,42,102,.86)}
+.button.dashboard{background:linear-gradient(135deg,#60a5fa,#1d4ed8);box-shadow:0 0 32px rgba(96,165,250,.58)}
+.status-box{margin:34px auto 0;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(8,25,60,.74);color:#dbeafe;font-weight:800}
+.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%}
+.online{background:#22c55e;box-shadow:0 0 14px #22c55e}.offline{background:#ef4444;box-shadow:0 0 14px #ef4444}
+section{padding:74px 0}
+.section-head{text-align:center;max-width:760px;margin:0 auto 28px}
+h2{font-size:clamp(30px,4vw,46px);margin:0;line-height:1.1}
+.section-head p,.card p{color:var(--muted);line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{min-height:220px;padding:22px;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:rgba(13,47,116,.75);box-shadow:0 18px 50px rgba(0,0,0,.22)}
+.card h3{margin:0 0 10px;font-size:22px}
+.comparison{width:100%;border-collapse:collapse;margin-top:20px;overflow:hidden;border-radius:8px}
+.comparison th,.comparison td{padding:15px;border:1px solid rgba(255,255,255,.15);background:rgba(8,25,60,.48)}
+.comparison th{background:rgba(37,99,235,.42)}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:26px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,rgba(59,130,246,.42),rgba(29,78,216,.38))}
+.cta p{margin:8px 0 0;color:#dbeafe}
+footer{padding:30px 0;text-align:center;color:#b7cdfb;border-top:1px solid rgba(255,255,255,.12)}
+footer nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:10px}
+footer a{color:#dbeafe;font-weight:800}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}.button{width:100%}.comparison{font-size:14px}}
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "FR1EV SECURITY",
-  "applicationCategory": "SecurityApplication",
-  "operatingSystem": "Discord",
-  "creator": {
-    "@type": "Person",
-    "name": "fr1ev",
-    "alternateName": "notfr1ev"
-  },
-  "url": "https://fr1ev.github.io/fr1ev-security/",
-  "description": "Advanced moderation and intelligent protection bot for Discord servers."
-}
-</script>
-
+<script src="https://unpkg.com/@discord/embedded-app-sdk"></script>
 </head>
-
 <body>
-
 <header>
-<h1>🛡️ FR1EV <span class="glow">SECURITY</span></h1>
-<p class="subtitle">Advanced moderation & intelligent protection for Discord servers.</p>
-
-<div class="buttons">
-
-<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8" target="_blank" rel="noopener noreferrer">
-Add to Server
-</a>
-
-<a class="button main-button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">
-Support Server
-</a>
-
-<a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">
-User Install
-</a>
-
-</div>
-
-<div class="profile-row">
-<a class="button" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">
-Profile
-</a>
-</div>
-
-<div class="status-box" id="botStatus">
-<span class="status-dot offline"></span> Checking status...
-</div>
+  <div class="wrap">
+    <span class="badge">Discord moderation and protection</span>
+    <h1>FR1EV <span class="glow">SECURITY</span></h1>
+    <p class="subtitle">Control moderation, automod, tickets, AI tools, leveling, voice TTS, and server setup from one blue command center.</p>
+    <div class="buttons">
+      <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8" target="_blank" rel="noopener noreferrer">Add to Server</a>
+      <a class="button dashboard" href="/fr1ev-security/dashboard/">Dashboard</a>
+      <a class="button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">Support Server</a>
+      <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">User Install</a>
+      <a class="button dark" href="/fr1ev-security/roblox/">Roblox Link</a>
+      <a class="button dark" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">Profile</a>
+    </div>
+    <div class="status-box" id="botStatus"><span class="status-dot offline"></span> Checking status...</div>
+  </div>
 </header>
 
 <section>
-<h2>⚔ Why Choose FR1EV?</h2>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Built for server control</h2>
+      <p>FR1EV SECURITY keeps the serious tools fast: ban, kick, timeout, role control, owner bypass, tickets, server stats, verification, AI, and automod.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><h3>Dashboard moderation</h3><p>Use the dashboard with the bot API to ban, kick, timeout, untimeout, unban, manage roles, and send announcements after Discord permission checks.</p></article>
+      <article class="card"><h3>Automod</h3><p>Enable spam filtering, invite blocking, link blocking, mention limits, blocked words, and timeout punishments from the dashboard.</p></article>
+      <article class="card"><h3>Server systems</h3><p>Tickets, verification, leveling, server stats, TTS, AI ask, image generation, and owner tools stay connected to your bot commands.</p></article>
+    </div>
+  </div>
+</section>
 
-<p class="seo-text">
-FR1EV SECURITY is the official Discord bot project by fr1ev, also known as notfr1ev. It focuses on moderation, protection, automation, AI tools, and reliable server management for Discord communities.
-</p>
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Open the dashboard</h2>
+        <p>Login with Discord, pick a server, connect your private bot API, and manage the server safely.</p>
+      </div>
+      <a class="button dashboard" href="/fr1ev-security/dashboard/">Dashboard</a>
+    </div>
+  </div>
+</section>
 
-<table class="comparison">
-<tr>
-<th>Feature</th>
-<th>FR1EV</th>
-<th>Typical Bot</th>
-</tr>
-
-<tr>
-<td>Global Owner Control</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-
-<tr>
-<td>Role-Based Access System</td>
-<td>✅</td>
-<td>⚠ Basic</td>
-</tr>
-
-<tr>
-<td>AI Integration</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-
-<tr>
-<td>Lightweight Architecture</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-</table>
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>FR1EV vs typical bots</h2>
+    </div>
+    <table class="comparison">
+      <tr><th>Feature</th><th>FR1EV</th><th>Typical Bot</th></tr>
+      <tr><td>Global owner control</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Role-based access</td><td>Advanced</td><td>Basic</td></tr>
+      <tr><td>Dashboard moderation</td><td>Yes</td><td>Depends</td></tr>
+      <tr><td>AI and image generation</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Lightweight Python architecture</td><td>Yes</td><td>No</td></tr>
+    </table>
+  </div>
 </section>
 
 <footer>
-© 2026 FR1EV SECURITY — Verified Discord Application
+  <div class="wrap">
+    <nav>
+      <a href="/fr1ev-security/dashboard/">Dashboard</a>
+      <a href="/fr1ev-security/roblox/">Roblox</a>
+      <a href="/fr1ev-security/privacy.html">Privacy</a>
+      <a href="/fr1ev-security/tos.html">Terms</a>
+    </nav>
+    2026 FR1EV SECURITY - Verified Discord Application
+  </div>
 </footer>
 
 <script>
-const discordSdk = new DiscordSDK("1453017552551936000");
-
-async function startActivity(){
-  await discordSdk.ready();
-  console.log("FR1EV Activity running inside Discord");
-}
-
-startActivity();
-
+try {
+  const discordSdk = new DiscordSDK("1453017552551936000");
+  discordSdk.ready().catch(() => {});
+} catch {}
 const statusUrl = "https://fr1ev.github.io/fr1ev-security/status.json?v=" + Date.now();
-
-function setOnline(diff){
-  document.getElementById("botStatus").innerHTML =
-  '<span class="status-dot online"></span> Bot Online (last ping ' + diff + 's ago)';
-}
-
-function setOffline(reason){
-  document.getElementById("botStatus").innerHTML =
-  '<span class="status-dot offline"></span> Bot Offline' + (reason ? " (" + reason + ")" : "");
-}
-
-fetch(statusUrl,{cache:"no-store"})
-.then(res=>{
-  if(!res.ok) throw new Error("HTTP "+res.status);
-  return res.json();
-})
-.then(data=>{
-  const now=Math.floor(Date.now()/1000);
-  const last=Number(data.last_heartbeat);
-  const diff=now-last;
-
-  if(!last||isNaN(last)) return setOffline("invalid status.json");
-  if(diff<1200) return setOnline(diff);
-  return setOffline("last ping "+diff+"s ago");
-})
-.catch(err=>{
-  setOffline("fetch failed");
-});
+function setOnline(diff){document.getElementById("botStatus").innerHTML='<span class="status-dot online"></span> Bot Online (last ping '+diff+'s ago)'}
+function setOffline(reason){document.getElementById("botStatus").innerHTML='<span class="status-dot offline"></span> Bot Offline'+(reason?" ("+reason+")":"")}
+fetch(statusUrl,{cache:"no-store"}).then(res=>{if(!res.ok)throw new Error("HTTP "+res.status);return res.json()}).then(data=>{const now=Math.floor(Date.now()/1000);const last=Number(data.last_heartbeat);const diff=now-last;if(!last||isNaN(last))return setOffline("invalid status");if(diff<1200)return setOnline(diff);return setOffline("last ping "+diff+"s ago")}).catch(()=>setOffline("fetch failed"));
 </script>
-
 </body>
 </html>

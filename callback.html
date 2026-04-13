@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>FR1EV Callback</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FR1EV SECURITY - Callback</title>
+<meta name="theme-color" content="#2563eb">
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:Arial,sans-serif;background:linear-gradient(135deg,#06142f,#0b1f4d);color:white}.card{width:min(620px,calc(100% - 32px));padding:28px;border-radius:8px;background:rgba(15,42,102,.82);border:1px solid rgba(255,255,255,.16);text-align:center}.button{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border-radius:8px;background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;text-decoration:none;font-weight:bold;margin-top:16px}code{display:block;overflow:auto;padding:12px;border-radius:8px;background:#06142f;color:#bfdbfe}
+</style>
 </head>
 <body>
-  <h2>OAuth callback page</h2>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-
-    if (code) {
-      document.body.innerHTML = `<h2>✅ Code received</h2><code>${code}</code>`;
-    } else {
-      document.body.innerHTML = `<h2>❌ No code found</h2>`;
-    }
-  </script>
+<main class="card" id="card">
+  <h1>FR1EV Callback</h1>
+  <p>Checking OAuth response...</p>
+</main>
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get("code");
+const card = document.getElementById("card");
+if(code){
+  card.innerHTML = `<h1>Code received</h1><p>Return to Discord or the dashboard to finish.</p><code>${code}</code><a class="button" href="/fr1ev-security/dashboard/">Dashboard</a>`;
+}else{
+  card.innerHTML = `<h1>No code found</h1><p>Open the dashboard and login again.</p><a class="button" href="/fr1ev-security/dashboard/">Dashboard</a>`;
+}
+</script>
 </body>
 </html>
