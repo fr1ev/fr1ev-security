@@ -125,7 +125,7 @@ h2 { margin: 0; font-size: 24px; }
 .button.ghost { background: transparent; }
 .button.danger { background: linear-gradient(135deg, #ef4444, #b91c1c); }
 .button.warning { background: linear-gradient(135deg, #f59e0b, #b45309); }
-.hidden { display: none; }
+.hidden { display: none !important; }
 .api-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 560px);
@@ -210,6 +210,10 @@ input:focus, select:focus, textarea:focus {
   cursor: pointer;
 }
 .guild-btn.active, .guild-btn:hover { border-color: #93c5fd; }
+.guild-btn.locked {
+  opacity: .72;
+  cursor: not-allowed;
+}
 .guild-btn small { display: block; margin-top: 3px; color: var(--muted); }
 .guild-btn .guild-meta {
   display: flex;
@@ -220,6 +224,13 @@ input:focus, select:focus, textarea:focus {
 .guild-btn .owner-pill {
   color: #bfdbfe;
   font-weight: 800;
+}
+.guild-btn .server-state {
+  color: #93c5fd;
+  font-weight: 800;
+}
+.guild-btn.locked .server-state {
+  color: #fca5a5;
 }
 .overview-grid {
   display: grid;

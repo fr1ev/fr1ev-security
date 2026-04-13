@@ -20,7 +20,7 @@
         <a href="#moderation">Moderation</a>
         <a href="#automod">Automod</a>
         <a href="#roles">Roles</a>
-        <a href="#announce">Announce</a>
+        <a href="#announce" class="owner-only hidden">Announce</a>
       </nav>
       <a class="invite" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8" target="_blank" rel="noreferrer">Invite bot</a>
     </aside>
@@ -30,7 +30,7 @@
         <div>
           <p class="eyebrow">FR1EV SECURITY</p>
           <h1>Server control dashboard</h1>
-          <p class="lead">Login with Discord, connect your private bot API, select a server, and manage moderation safely.</p>
+          <p class="lead">Login with Discord and approve the server-list permission so the dashboard can show your servers.</p>
         </div>
         <div class="actions">
           <button class="button primary" id="loginBtn" type="button">Login with Discord</button>
@@ -71,7 +71,7 @@
             </div>
             <button class="button secondary" id="loadGuilds" type="button">Refresh</button>
           </div>
-          <div id="userBox" class="user-box">Login to load your manageable servers.</div>
+          <div id="userBox" class="user-box">Login asks Discord for permission to know what servers you are in.</div>
           <input id="guildSearch" class="search" type="search" placeholder="Search servers">
           <div id="guildList" class="guild-list"></div>
         </article>
@@ -152,7 +152,7 @@
         </div>
       </section>
 
-      <section class="panel" id="announce">
+      <section class="panel owner-only hidden" id="announce">
         <div class="panel-head">
           <div>
             <p class="eyebrow">Messages</p>

@@ -81,6 +81,7 @@ function loginUrl() {
   url.searchParams.set("client_id", CLIENT_ID);
   url.searchParams.set("redirect_uri", redirectUri());
   url.searchParams.set("response_type", "token");
+  // "guilds" is the Discord OAuth permission that asks to know what servers you are in.
   url.searchParams.set("scope", "identify guilds");
   url.searchParams.set("prompt", "consent");
   return url.toString();
@@ -142,6 +143,9 @@ function renderSession() {
   els.guildState.textContent = selectedGuild()?.name || "None";
   els.memberState.textContent = state.overview?.member_count || "-";
   els.ownerBanner.classList.toggle("hidden", !state.isOwner);
+  document.querySelectorAll(".owner-only").forEach((item) => {
+    item.classList.toggle("hidden", !state.isOwner);
+  });
 }
 
 function selectedGuild() {
@@ -155,7 +159,7 @@ function renderGuilds() {
     : state.guilds;
 
   if (!state.guilds.length) {
-    els.guildList.innerHTML = `<div class="user-box">No manageable bot servers loaded.</div>`;
+    els.guildList.innerHTML = `<div class="user-box">No servers loaded. Login with Discord and approve the permission to know what servers you are in.</div>`;
     return;
   }
 
@@ -165,16 +169,26 @@ function renderGuilds() {
   }
 
   els.guildList.innerHTML = guilds.map(guild => `
-    <button class="guild-btn ${guild.id === state.selectedGuildId ? "active" : ""}" data-guild="${guild.id}" type="button">
+    <button class="guild-btn ${guild.id === state.selectedGuildId ? "active" : ""} ${guild.manageable === false ? "locked" : ""}" data-guild="${guild.id}" type="button">
       <strong>${guild.name}</strong>
       <span class="guild-meta">
         <small>${guild.id}</small>
+        <small class="server-state">${serverStateText(guild)}</small>
         ${guild.owner_unlock ? `<small class="owner-pill">Owner unlock</small>` : ``}
       </span>
     </button>
   `).join("");
   document.querySelectorAll("[data-guild]").forEach(button => {
     button.addEventListener("click", async () => {
+      const guild = state.guilds.find(item => item.id === button.dataset.guild);
+      if (guild && guild.manageable === false) {
+        if (!guild.bot_in_server) {
+          log(`${guild.name}: invite the bot before managing this server.`);
+        } else if (!guild.can_manage) {
+          log(`${guild.name}: you need Manage Server or Administrator.`);
+        }
+        return;
+      }
       state.selectedGuildId = button.dataset.guild;
       saveState();
       renderSession();
@@ -182,6 +196,14 @@ function renderGuilds() {
       await loadOverview();
     });
   });
+}
+
+function serverStateText(guild) {
+  if (guild.owner_unlock) return "Unlocked";
+  if (guild.manageable) return "Ready";
+  if (!guild.bot_in_server) return "Bot not in server";
+  if (!guild.can_manage) return "No manage perms";
+  return "Locked";
 }
 
 function renderOverview() {
@@ -248,8 +270,10 @@ async function loadGuilds() {
     const data = await api("/api/guilds");
     state.guilds = data.guilds || [];
     state.isOwner = state.isOwner || Boolean(data.owner_unlock);
-    if (!state.selectedGuildId && state.guilds.length) state.selectedGuildId = state.guilds[0].id;
-    if (!state.guilds.some(guild => guild.id === state.selectedGuildId)) state.selectedGuildId = state.guilds[0]?.id || "";
+    const selectableGuilds = state.guilds.filter(guild => guild.manageable !== false);
+    if (!state.selectedGuildId && selectableGuilds.length) state.selectedGuildId = selectableGuilds[0].id;
+    if (!state.guilds.some(guild => guild.id === state.selectedGuildId)) state.selectedGuildId = selectableGuilds[0]?.id || "";
+    if (selectedGuild()?.manageable === false) state.selectedGuildId = selectableGuilds[0]?.id || "";
     saveState();
     renderGuilds();
     renderSession();
@@ -333,6 +357,10 @@ async function role(action) {
 }
 
 async function announce() {
+  if (!state.isOwner) {
+    log("Announcements are owner only.");
+    return;
+  }
   try {
     const data = await api(`/api/guilds/${state.selectedGuildId}/announce`, {
       method: "POST",
