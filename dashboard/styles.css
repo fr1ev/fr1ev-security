@@ -156,6 +156,23 @@ input:focus, select:focus, textarea:focus {
 .stats article { min-height: 86px; padding: 16px; }
 .stats span, label { color: var(--muted); }
 .stats strong { display: block; margin-top: 8px; font-size: 22px; overflow-wrap: anywhere; }
+.owner-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 14px 0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(147,197,253,.45);
+  background: linear-gradient(135deg, rgba(59,130,246,.42), rgba(37,99,235,.24));
+  color: #dbeafe;
+}
+.owner-banner strong {
+  color: white;
+  white-space: nowrap;
+}
+.owner-banner.hidden { display: none; }
 .workspace {
   display: grid;
   grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
@@ -177,6 +194,9 @@ input:focus, select:focus, textarea:focus {
   background: rgba(6,20,47,.7);
   color: var(--muted);
 }
+.search {
+  margin-top: 12px;
+}
 .guild-list { display: grid; gap: 8px; margin-top: 12px; max-height: 430px; overflow: auto; }
 .guild-btn {
   width: 100%;
@@ -191,6 +211,16 @@ input:focus, select:focus, textarea:focus {
 }
 .guild-btn.active, .guild-btn:hover { border-color: #93c5fd; }
 .guild-btn small { display: block; margin-top: 3px; color: var(--muted); }
+.guild-btn .guild-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 3px;
+}
+.guild-btn .owner-pill {
+  color: #bfdbfe;
+  font-weight: 800;
+}
 .overview-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0,1fr));

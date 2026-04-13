@@ -5,6 +5,7 @@ const state = {
   token: localStorage.getItem("fr1evDiscordToken") || "",
   apiBase: "",
   user: null,
+  isOwner: false,
   guilds: [],
   selectedGuildId: "",
   overview: null,
@@ -24,6 +25,8 @@ const els = {
   memberState: document.querySelector("#memberState"),
   userBox: document.querySelector("#userBox"),
   guildList: document.querySelector("#guildList"),
+  guildSearch: document.querySelector("#guildSearch"),
+  ownerBanner: document.querySelector("#ownerBanner"),
   selectedName: document.querySelector("#selectedName"),
   channelCount: document.querySelector("#channelCount"),
   roleCount: document.querySelector("#roleCount"),
@@ -70,7 +73,7 @@ function saveState() {
 }
 
 function redirectUri() {
-  return location.href.split("#")[0];
+  return new URL("/fr1ev-security/callback.html", location.origin).toString();
 }
 
 function loginUrl() {
@@ -79,6 +82,7 @@ function loginUrl() {
   url.searchParams.set("redirect_uri", redirectUri());
   url.searchParams.set("response_type", "token");
   url.searchParams.set("scope", "identify guilds");
+  url.searchParams.set("prompt", "consent");
   return url.toString();
 }
 
@@ -90,7 +94,7 @@ function parseToken() {
     state.token = token;
     localStorage.setItem("fr1evDiscordToken", token);
   }
-  history.replaceState({}, document.title, redirectUri());
+  history.replaceState({}, document.title, location.pathname + location.search);
 }
 
 function log(message) {
@@ -135,6 +139,7 @@ function renderSession() {
   els.logoutBtn.classList.toggle("hidden", !state.token);
   els.guildState.textContent = selectedGuild()?.name || "None";
   els.memberState.textContent = state.overview?.member_count || "-";
+  els.ownerBanner.classList.toggle("hidden", !state.isOwner);
 }
 
 function selectedGuild() {
@@ -142,14 +147,28 @@ function selectedGuild() {
 }
 
 function renderGuilds() {
+  const query = (els.guildSearch.value || "").trim().toLowerCase();
+  const guilds = query
+    ? state.guilds.filter(guild => `${guild.name} ${guild.id}`.toLowerCase().includes(query))
+    : state.guilds;
+
   if (!state.guilds.length) {
     els.guildList.innerHTML = `<div class="user-box">No manageable bot servers loaded.</div>`;
     return;
   }
-  els.guildList.innerHTML = state.guilds.map(guild => `
+
+  if (!guilds.length) {
+    els.guildList.innerHTML = `<div class="user-box">No servers match that search.</div>`;
+    return;
+  }
+
+  els.guildList.innerHTML = guilds.map(guild => `
     <button class="guild-btn ${guild.id === state.selectedGuildId ? "active" : ""}" data-guild="${guild.id}" type="button">
       <strong>${guild.name}</strong>
-      <small>${guild.id}</small>
+      <span class="guild-meta">
+        <small>${guild.id}</small>
+        ${guild.owner_unlock ? `<small class="owner-pill">Owner unlock</small>` : ``}
+      </span>
     </button>
   `).join("");
   document.querySelectorAll("[data-guild]").forEach(button => {
@@ -205,11 +224,13 @@ async function loadMe() {
   try {
     const data = await api("/api/me");
     state.user = data.user;
-    els.userBox.innerHTML = `<strong>${state.user.username}</strong><br><span>${state.user.id}</span>`;
+    state.isOwner = Boolean(data.is_owner);
+    els.userBox.innerHTML = `<strong>${state.user.username}</strong><br><span>${state.user.id}${state.isOwner ? " - Owner unlock" : ""}</span>`;
     log(`Logged in as ${state.user.username}.`);
   } catch (error) {
     log(error.message);
     state.token = "";
+    state.isOwner = false;
     localStorage.removeItem("fr1evDiscordToken");
   }
   renderSession();
@@ -219,6 +240,7 @@ async function loadGuilds() {
   try {
     const data = await api("/api/guilds");
     state.guilds = data.guilds || [];
+    state.isOwner = state.isOwner || Boolean(data.owner_unlock);
     if (!state.selectedGuildId && state.guilds.length) state.selectedGuildId = state.guilds[0].id;
     if (!state.guilds.some(guild => guild.id === state.selectedGuildId)) state.selectedGuildId = state.guilds[0]?.id || "";
     saveState();
@@ -325,6 +347,7 @@ function setupEvents() {
   els.logoutBtn.addEventListener("click", () => {
     state.token = "";
     state.user = null;
+    state.isOwner = false;
     state.guilds = [];
     state.overview = null;
     localStorage.removeItem("fr1evDiscordToken");
@@ -353,6 +376,7 @@ function setupEvents() {
   });
   els.loadGuilds.addEventListener("click", loadGuilds);
   els.reloadOverview.addEventListener("click", loadOverview);
+  els.guildSearch.addEventListener("input", renderGuilds);
   document.querySelectorAll("[data-mod-action]").forEach(button => {
     button.addEventListener("click", () => moderation(button.dataset.modAction));
   });
@@ -368,4 +392,8 @@ setupEvents();
 renderSession();
 renderGuilds();
 renderOverview();
-loadMe().then(loadGuilds);
+loadMe().then(() => {
+  if (state.token) {
+    return loadGuilds();
+  }
+});

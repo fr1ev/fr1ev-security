@@ -57,6 +57,11 @@
         <article><span>Members</span><strong id="memberState">-</strong></article>
       </section>
 
+      <section class="owner-banner hidden" id="ownerBanner">
+        <strong>Owner unlock active</strong>
+        <span>Your Discord account matches OWNER_ID, so every dashboard feature is unlocked on every server the bot is in.</span>
+      </section>
+
       <section class="workspace">
         <article class="panel">
           <div class="panel-head">
@@ -67,6 +72,7 @@
             <button class="button secondary" id="loadGuilds" type="button">Refresh</button>
           </div>
           <div id="userBox" class="user-box">Login to load your manageable servers.</div>
+          <input id="guildSearch" class="search" type="search" placeholder="Search servers">
           <div id="guildList" class="guild-list"></div>
         </article>
 
