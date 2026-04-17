@@ -89,7 +89,7 @@ footer a{color:#dbeafe;font-weight:800}
       <a class="button dashboard" href="https://fr1ev-security-dashboard.fr1evvv.workers.dev/" target="_blank" rel="noopener noreferrer">Dashboard</a>
       <a class="button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">Support Server</a>
       <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">User Install</a>
-      <a class="button dark" href="/fr1ev-security/roblox/">Roblox Link</a>
+      <a id="robloxBtn" class="button dark" href="/fr1ev-security/roblox/">Roblox Link</a>
       <a class="button dark" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">Profile</a>
     </div>
     <div class="status-box" id="botStatus"><span class="status-dot offline"></span> Checking status...</div>
@@ -201,6 +201,27 @@ footer a{color:#dbeafe;font-weight:800}
       offline("heartbeat fetch failed");
       console.warn("FR1EV heartbeat status failed:", error);
     });
+
+  const robloxBtn = document.getElementById("robloxBtn");
+  if (robloxBtn) {
+    fetch("https://fr1ev-security-dashboard.fr1evvv.workers.dev/api/me", {
+      credentials: "include"
+    })
+      .then(function(res){
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function(data){
+        if (data && data.ok && data.user && data.user.id) {
+          robloxBtn.href = "https://fr1ev.github.io/fr1ev-security/roblox/" + data.user.id;
+        } else {
+          robloxBtn.href = "https://fr1ev.github.io/fr1ev-security/roblox/";
+        }
+      })
+      .catch(function(){
+        robloxBtn.href = "https://fr1ev.github.io/fr1ev-security/roblox/";
+      });
+  }
 })();
 </script>
 </body>
