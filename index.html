@@ -68,14 +68,14 @@ footer a{color:#dbeafe;font-weight:800}
 <nav class="top-nav" aria-label="Main navigation">
   <div class="wrap top-nav-inner">
     <a class="nav-brand" href="/fr1ev-security/">
-      <img src="/fr1ev-security/fr1ev_security.png" class="nav-mark" alt="FR1EV SECURITY logo">
+      <img src="/fr1ev_security.png" class="nav-mark" alt="FR1EV SECURITY logo">
       <span>FR1EV SECURITY</span>
     </a>
     <div class="nav-links">
       <a href="https://fr1ev-security-dashboard.fr1evvv.workers.dev/" target="_blank" rel="noopener noreferrer">Dashboard</a>
-      <a href="/fr1ev-security/roblox/">Roblox</a>
-      <a href="/fr1ev-security/privacy.html">Privacy</a>
-      <a href="/fr1ev-security/tos.html">Terms</a>
+      <a href="/roblox/">Roblox</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/tos.html">Terms</a>
     </div>
   </div>
 </nav>
@@ -90,7 +90,7 @@ footer a{color:#dbeafe;font-weight:800}
       <a class="button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">Support Server</a>
       <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">User Install</a>
       <a id="robloxBtn" class="button dark" href="/fr1ev-security/roblox/">Roblox Link</a>
-      <a class="button dark" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">Profile</a>
+      <a class="button dark" href="https://fr1ev.xy/profile/" target="_blank" rel="noopener noreferrer">Profile</a>
     </div>
     <div class="status-box" id="botStatus"><span class="status-dot offline"></span> Checking status...</div>
   </div>
@@ -141,10 +141,9 @@ footer a{color:#dbeafe;font-weight:800}
 <footer>
   <div class="wrap">
     <nav>
-      <a href="/fr1ev-security/dashboard/">Dashboard</a>
-      <a href="/fr1ev-security/roblox/">Roblox</a>
-      <a href="/fr1ev-security/privacy.html">Privacy</a>
-      <a href="/fr1ev-security/tos.html">Terms</a>
+      <a href="/roblox/">Roblox</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/tos.html">Terms</a>
     </nav>
     2026 FR1EV SECURITY - Verified Discord Application
   </div>
@@ -160,7 +159,7 @@ footer a{color:#dbeafe;font-weight:800}
   } catch {}
 
   const box = document.getElementById("botStatus");
-  const statusUrl = "/fr1ev-security/status.json?v=" + Date.now();
+  const statusUrl = "/status.json?v=" + Date.now();
 
   function setStatus(dot, text) {
     if (!box) return;
@@ -213,13 +212,13 @@ footer a{color:#dbeafe;font-weight:800}
       })
       .then(function(data){
         if (data && data.ok && data.user && data.user.id) {
-          robloxBtn.href = "https://fr1ev.github.io/fr1ev-security/roblox/" + data.user.id;
+          robloxBtn.href = "https://fr1ev.xyz/roblox/" + data.user.id;
         } else {
-          robloxBtn.href = "https://fr1ev.github.io/fr1ev-security/roblox/";
+          robloxBtn.href = "https://fr1ev.xyz/roblox/";
         }
       })
       .catch(function(){
-        robloxBtn.href = "https://fr1ev.github.io/fr1ev-security/roblox/";
+        robloxBtn.href = "https://fr1ev.xyz/roblox/";
       });
   }
 })();
