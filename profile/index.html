@@ -1,1 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="CCaXhxuBgHjBknScV_EMFCmz6NVOu2kSI3Sb2W1lOSU" />
 
+  <title>fr1ev | Official Profile, Portfolio, Projects & Links</title>
+  <meta name="description" content="Official fr1ev profile, also known as notfr1ev. Explore projects, portfolio, Discord, GitHub, Roblox group, FR1EV SECURITY, and creator links." />
+  <meta name="keywords" content="fr1ev, notfr1ev, fr1ev profile, notfr1ev profile, fr1ev portfolio, fr1ev projects, FR1EV SECURITY, fr1ev Discord, notfr1ev links" />
+  <meta name="author" content="fr1ev" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://fr1ev.github.io/notfr1ev/" />
+  <link rel="icon" href="./favicon.ico" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fr1ev.github.io/notfr1ev/" />
+  <meta property="og:title" content="fr1ev | Official Profile, Portfolio, Projects & Links" />
+  <meta property="og:description" content="Official fr1ev profile with projects, portfolio, Discord, GitHub, Roblox, and FR1EV SECURITY." />
+  <meta property="og:image" content="https://fr1ev.github.io/notfr1ev/animepfp.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="fr1ev | Official Profile, Portfolio, Projects & Links" />
+  <meta name="twitter:description" content="Official fr1ev profile with projects, portfolio, Discord, GitHub, Roblox, and FR1EV SECURITY." />
+  <meta name="twitter:image" content="https://fr1ev.github.io/notfr1ev/animepfp.png" />
+  <meta name="theme-color" content="#7c8cff" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "fr1ev",
+    "alternateName": ["notfr1ev", "FR1EV"],
+    "url": "https://fr1ev.github.io/notfr1ev/",
+    "image": "https://fr1ev.github.io/notfr1ev/animepfp.png",
+    "description": "Official fr1ev profile, portfolio, projects, and links.",
+    "sameAs": [
+      "https://github.com/fr1ev",
+      "https://fr1ev.github.io/fr1ev-security/",
+      "https://www.roblox.com/communities/425994833/FR1EV-Studios#!/about",
+      "https://discord.gg/Bd7fEsTHNJ"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #050816;
+      --stroke: rgba(121, 144, 255, 0.24);
+      --text: #eef2ff;
+      --muted: #a8b1d8;
+      --accent: #7c8cff;
+      --accent-2: #4de2c5;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius: 22px;
+      --max: 1080px;
+      --panel: linear-gradient(180deg, rgba(15, 21, 46, 0.92), rgba(10, 15, 36, 0.9));
+      --panel-2: linear-gradient(180deg, rgba(23, 31, 68, 0.9), rgba(17, 24, 52, 0.9));
+      --discord-bg: #0b1023;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(91, 111, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 85% 55%, rgba(153, 98, 255, 0.14), transparent 22%),
+        linear-gradient(180deg, #04070f 0%, #050816 45%, #03060f 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section { padding: 28px 0; }
+
+    .hero-wrap {
+      padding: 54px 0 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 22px;
+      align-items: start;
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(12px);
+    }
+
+    .avatar-column {
+      position: relative;
+      width: 110px;
+      min-height: 110px;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(124, 140, 255, 0.35);
+      box-shadow: 0 0 0 6px rgba(124, 140, 255, 0.08);
+      display: block;
+      background: #0f152e;
+    }
+
+    .status-badge {
+      position: absolute;
+      right: 6px;
+      bottom: 6px;
+      width: 24px;
+      height: 24px;
+      border: 4px solid var(--discord-bg);
+      border-radius: 50%;
+      background: #80848e;
+      box-shadow: 0 0 0 3px rgba(124, 140, 255, 0.08);
+      z-index: 5;
+    }
+
+    .status-badge.online {
+      background: #23a55a;
+    }
+
+    .status-badge.idle {
+      background: #f0b232;
+    }
+
+    .status-badge.idle::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--discord-bg);
+    }
+
+    .status-badge.dnd {
+      background: #f23f43;
+    }
+
+    .status-badge.dnd::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 4px;
+      border-radius: 999px;
+      background: white;
+      transform: translate(-50%, -50%);
+    }
+
+    .status-badge.offline {
+      background: #80848e;
+    }
+
+    .status-badge.offline::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      background: var(--discord-bg);
+    }
+
+    .status-badge.mobile {
+      width: 22px;
+      height: 28px;
+      border-radius: 8px;
+      background: #23a55a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: white;
+    }
+
+    .status-badge.mobile::after {
+      content: "📱";
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: clamp(28px, 4vw, 42px); }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .desc {
+      margin-top: 12px;
+      color: #c6ceef;
+      line-height: 1.65;
+      max-width: 780px;
+    }
+
+    .seo-text {
+      margin-top: 14px;
+      color: #d8def8;
+      line-height: 1.7;
+      max-width: 820px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid rgba(124, 140, 255, 0.28);
+      background: rgba(124, 140, 255, 0.12);
+      transition: .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(124, 140, 255, 0.2);
+      box-shadow: 0 12px 28px rgba(89, 104, 255, 0.18);
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--accent), #93a2ff);
+      color: #0a1027;
+      border: none;
+    }
+
+    .custom-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #eef2ff;
+      font-weight: 600;
+      max-width: fit-content;
+    }
+
+    .custom-status-pill.hidden {
+      display: none;
+    }
+
+    .custom-status-emoji {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    .profile-badge {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(124, 140, 255, 0.16), rgba(124, 140, 255, 0.08));
+      border: 1px solid rgba(124, 140, 255, 0.26);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      cursor: default;
+      transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+
+    .profile-badge:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(124, 140, 255, 0.26), rgba(124, 140, 255, 0.14));
+      box-shadow: 0 12px 28px rgba(89, 104, 255, 0.18);
+    }
+
+    .profile-badge img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .founder-badge {
+      background: linear-gradient(180deg, rgba(255, 188, 92, 0.22), rgba(255, 140, 66, 0.12));
+      border: 1px solid rgba(255, 188, 92, 0.35);
+    }
+
+    .founder-badge:hover {
+      background: linear-gradient(180deg, rgba(255, 188, 92, 0.32), rgba(255, 140, 66, 0.18));
+      box-shadow: 0 12px 28px rgba(255, 170, 90, 0.18);
+    }
+
+    .founder-badge img {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+
+    .profile-badge::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(10, 14, 28, 0.96);
+      color: #eef2ff;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(124, 140, 255, 0.22);
+      white-space: nowrap;
+      font-size: 12px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .16s ease, transform .16s ease;
+      z-index: 50;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .profile-badge::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 4px);
+      transform: translateX(-50%) translateY(6px);
+      border: 6px solid transparent;
+      border-top-color: rgba(10, 14, 28, 0.96);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .16s ease, transform .16s ease;
+      z-index: 49;
+    }
+
+    .profile-badge:hover::after,
+    .profile-badge:hover::before {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .presence-card {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .activity-box {
+      margin-top: 4px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(6, 10, 24, 0.35);
+      border: 1px solid rgba(124, 140, 255, 0.14);
+    }
+
+    .activity-head {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .activity-art-wrap {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      flex-shrink: 0;
+    }
+
+    .activity-art {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: rgba(255,255,255,0.06);
+      display: block;
+    }
+
+    .activity-art-small {
+      position: absolute;
+      right: -4px;
+      bottom: -4px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--discord-bg);
+      background: var(--discord-bg);
+    }
+
+    .activity-meta {
+      min-width: 0;
+    }
+
+    .activity-title {
+      font-weight: 800;
+      color: #eef2ff;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .activity-details,
+    .activity-state,
+    .activity-time {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .activity-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .activity-empty {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel-2);
+      border: 1px solid var(--stroke);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      display: block;
+      border-bottom: 1px solid var(--stroke);
+      background: #0f152e;
+    }
+
+    .project-body {
+      padding: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #dce2ff;
+      background: rgba(124, 140, 255, 0.12);
+      border: 1px solid rgba(124, 140, 255, 0.18);
+    }
+
+    .status {
+      margin: 14px 0 10px;
+      font-size: 13px;
+      color: #d6dcff;
+      font-weight: 700;
+    }
+
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 78%;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    }
+
+    footer {
+      padding: 40px 0 54px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .avatar-column {
+        margin: 0 auto;
+      }
+
+      .btn-row,
+      .activity-buttons,
+      .badge-row {
+        justify-content: center;
+      }
+
+      .custom-status-pill {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .grid-2, .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-head {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container hero-wrap">
+    <section class="hero">
+      <div class="avatar-column">
+        <img class="avatar" src="./animepfp.png" alt="Profile photo">
+        <div id="hero-status-badge" class="status-badge offline" title="Offline"></div>
+      </div>
+
+      <div>
+        <h1 id="display-name">fr1ev</h1>
+        <p class="subtitle" id="username-line">Discord bot developer, game developer, creator</p>
+
+        <div class="badge-row">
+          <div class="profile-badge founder-badge" data-tooltip="FR1EV SECURITY Creator / Founder">
+            <img src="./favicon.ico" alt="FR1EV SECURITY Creator / Founder">
+          </div>
+
+          <div class="profile-badge" data-tooltip="Discord Staff">
+            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordstaff.svg" alt="Discord Staff">
+          </div>
+
+          <div class="profile-badge" data-tooltip="Early Verified Bot Developer">
+            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordbotdev.svg" alt="Early Verified Bot Developer">
+          </div>
+
+          <div class="profile-badge" data-tooltip="Bug Hunter Level 2">
+            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordbughunter2.svg" alt="Bug Hunter Level 2">
+          </div>
+
+          <div class="profile-badge" data-tooltip="HypeSquad Events">
+            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/hypesquadevents.svg" alt="HypeSquad Events">
+          </div>
+
+          <div class="profile-badge" data-tooltip="Active Developer">
+            <img src="https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/activedeveloper.svg" alt="Active Developer">
+          </div>
+        </div>
+
+        <div id="custom-status-pill" class="custom-status-pill hidden">
+          <span id="custom-status-emoji" class="custom-status-emoji">🔒</span>
+          <span id="custom-status-text">FR1EV SECURITY</span>
+        </div>
+
+        <p class="desc">
+          I build projects, communities, bots, websites, and systems. This site is my personal hub where people can find my links, projects, and contact info.
+        </p>
+
+        <p class="seo-text">
+          This is the official fr1ev profile, also known as notfr1ev, featuring portfolio links, creator projects, Discord, GitHub, Roblox, and FR1EV SECURITY.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn" href="https://www.roblox.com/communities/425994833/FR1EV-Studios#!/about" target="_blank" rel="noopener noreferrer">Roblox Group</a>
+          <a class="btn primary" href="https://discord.gg/Bd7fEsTHNJ" target="_blank" rel="noopener noreferrer">Discord Server</a>
+          <a class="btn" href="#projects">Projects</a>
+          <a class="btn" href="mailto:notfrev@gmail.com">Contact</a>
+          <a class="btn" href="https://github.com/fr1ev" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+
+        <div class="presence-card">
+          <div class="activity-box">
+            <div id="activity-content" class="activity-empty">Loading current activity...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main class="container">
+    <section class="section">
+      <h2 class="section-title">What I Do</h2>
+      <p class="section-subtitle">Change these cards to match what you actually do.</p>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Websites</h3>
+          <p>I make modern websites, landing pages, profile hubs, and community pages.</p>
+        </article>
+        <article class="card">
+          <h3>Discord Projects</h3>
+          <p>I build Discord bots, setup systems, moderation tools, and automation.</p>
+        </article>
+        <article class="card">
+          <h3>Graphics & Branding</h3>
+          <p>I work on profile branding, icons, banners, and polished online presence.</p>
+        </article>
+        <article class="card">
+          <h3>Custom Services</h3>
+          <p>I can showcase stores, commissions, links, social media, and featured work.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-subtitle">Replace these with your own projects, games, stores, servers, or anything you want to show.</p>
+      <div class="projects">
+        <article class="card project">
+          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80" alt="Project 1">
+          <div class="project-body">
+            <h3>My Main Project</h3>
+            <p class="subtitle">Ongoing</p>
+            <div class="tags">
+              <span class="tag">Website</span>
+              <span class="tag">Community</span>
+              <span class="tag">Tools</span>
+            </div>
+            <p>This is where you write a short description of what this project is and why it matters.</p>
+            <div class="status">Status: Active</div>
+            <div class="bar"><span></span></div>
+            <a class="btn" href="#">Open Project</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <img src="./fr1ev_project_full_centered.png" alt="Fr1ev security">
+          <div class="project-body">
+            <h3>Fr1ev security</h3>
+            <p class="subtitle">Ongoing</p>
+            <div class="tags">
+              <span class="tag">Security</span>
+              <span class="tag">Discord</span>
+              <span class="tag">Bot</span>
+            </div>
+            <p>Advanced moderation, protection, and automation tools focused on keeping Discord servers safe, organized, and easy to manage.</p>
+            <div class="status">Status: Active development</div>
+            <div class="bar"><span style="width: 92%"></span></div>
+            <a class="btn" href="https://fr1ev.github.io/fr1ev-security/" target="_blank" rel="noopener noreferrer">View Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 fr1ev. Built with HTML/CSS and hosted on GitHub Pages.
+  </footer>
+
+  <script>
+    const DISCORD_USER_ID = "1172933780705648673";
+
+    const heroStatusBadge = document.getElementById("hero-status-badge");
+    const activityContent = document.getElementById("activity-content");
+    const displayName = document.getElementById("display-name");
+    const usernameLine = document.getElementById("username-line");
+    const customStatusPill = document.getElementById("custom-status-pill");
+    const customStatusEmoji = document.getElementById("custom-status-emoji");
+    const customStatusText = document.getElementById("custom-status-text");
+
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function formatElapsed(ms) {
+      if (!ms) return "";
+      const seconds = Math.floor((Date.now() - ms) / 1000);
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      if (h > 0) return `Elapsed: ${h}h ${m}m`;
+      return `Elapsed: ${m}m`;
+    }
+
+    function setStatus(status, onMobile) {
+      const normalized = status || "offline";
+      heroStatusBadge.className = "status-badge";
+
+      if (onMobile && normalized === "online") {
+        heroStatusBadge.classList.add("mobile");
+        heroStatusBadge.title = "Online on mobile";
+        return;
+      }
+
+      if (["online", "idle", "dnd", "offline"].includes(normalized)) {
+        heroStatusBadge.classList.add(normalized);
+      } else {
+        heroStatusBadge.classList.add("offline");
+      }
+
+      const labelMap = {
+        online: "Online",
+        idle: "Idle",
+        dnd: "Do Not Disturb",
+        offline: "Offline"
+      };
+
+      heroStatusBadge.title = labelMap[normalized] || "Offline";
+    }
+
+    function getCustomStatus(activities) {
+      if (!Array.isArray(activities)) return null;
+      return activities.find(a => a && a.type === 4) || null;
+    }
+
+    function getBestActivity(activities) {
+      if (!Array.isArray(activities) || !activities.length) return null;
+      const filtered = activities.filter(a => a && a.type !== 4);
+      return filtered[0] || null;
+    }
+
+    function renderCustomStatus(customStatus) {
+      if (!customStatus || (!customStatus.state && !customStatus.emoji)) {
+        customStatusPill.classList.add("hidden");
+        return;
+      }
+
+      customStatusPill.classList.remove("hidden");
+      customStatusEmoji.textContent = customStatus.emoji?.name || "💬";
+      customStatusText.textContent = customStatus.state || "Custom Status";
+    }
+
+    function buildActivityButtons() {
+      return `
+        <a class="btn" href="https://fr1ev.github.io/fr1ev-security/" target="_blank" rel="noopener noreferrer">FR1EV SECURITY</a>
+        <a class="btn" href="https://www.roblox.com/games/98939762642270/Notfr1evs-Place#!/store" target="_blank" rel="noopener noreferrer">Donate me on roblox</a>
+      `;
+    }
+
+    function renderActivity(activity) {
+      if (!activity) {
+        activityContent.innerHTML = '<div class="activity-empty">No current activity right now.</div>';
+        return;
+      }
+
+      const title = activity.name || "Unknown Activity";
+      const details = activity.details || "";
+      const state = activity.state || "";
+      const elapsed = formatElapsed(activity.timestamps?.start);
+
+      const assets = activity.assets || {};
+      let largeImageUrl = "";
+      let smallImageUrl = "";
+
+      if (assets.large_image) {
+        if (assets.large_image.startsWith("mp:external/")) {
+          largeImageUrl = "https://media.discordapp.net/" + assets.large_image.replace("mp:", "");
+        } else if (activity.application_id) {
+          largeImageUrl = `https://cdn.discordapp.com/app-assets/${activity.application_id}/${assets.large_image}.png`;
+        }
+      }
+
+      if (assets.small_image) {
+        if (assets.small_image.startsWith("mp:external/")) {
+          smallImageUrl = "https://media.discordapp.net/" + assets.small_image.replace("mp:", "");
+        } else if (activity.application_id) {
+          smallImageUrl = `https://cdn.discordapp.com/app-assets/${activity.application_id}/${assets.small_image}.png`;
+        }
+      }
+
+      const buttonHtml = buildActivityButtons();
+
+      activityContent.innerHTML = `
+        <div class="activity-head">
+          <div class="activity-art-wrap">
+            ${largeImageUrl ? `<img class="activity-art" src="${escapeHtml(largeImageUrl)}" alt="Activity art">` : `<div class="activity-art"></div>`}
+            ${smallImageUrl ? `<img class="activity-art-small" src="${escapeHtml(smallImageUrl)}" alt="Small activity art">` : ``}
+          </div>
+          <div class="activity-meta">
+            <div class="activity-title">${escapeHtml(title)}</div>
+            ${details ? `<div class="activity-details">${escapeHtml(details)}</div>` : ""}
+            ${state ? `<div class="activity-state">${escapeHtml(state)}</div>` : ""}
+            ${elapsed ? `<div class="activity-time">${escapeHtml(elapsed)}</div>` : ""}
+          </div>
+        </div>
+        <div class="activity-buttons">${buttonHtml}</div>
+      `;
+    }
+
+    async function loadPresence() {
+      try {
+        const res = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`);
+        const json = await res.json();
+
+        if (!json.success || !json.data) {
+          throw new Error("Presence unavailable");
+        }
+
+        const data = json.data;
+        const user = data.discord_user || {};
+        const status = data.discord_status || "offline";
+        const onMobile = !!data.active_on_discord_mobile;
+
+        const customStatus = getCustomStatus(data.activities);
+        const activity = getBestActivity(data.activities);
+
+        displayName.textContent = user.display_name || user.global_name || user.username || "fr1ev";
+        usernameLine.textContent = `${user.username || "notfr1ev"} • live discord presence`;
+
+        setStatus(status, onMobile);
+        renderCustomStatus(customStatus);
+        renderActivity(activity);
+      } catch (err) {
+        setStatus("offline", false);
+        customStatusPill.classList.add("hidden");
+        activityContent.innerHTML = '<div class="activity-empty">Could not load Discord activity yet.</div>';
+      }
+    }
+
+    loadPresence();
+    setInterval(loadPresence, 15000);
+  </script>
+</body>
+</html>
