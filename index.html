@@ -4,36 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="CCaXhxuBgHjBknScV_EMFCmz6NVOu2kSI3Sb2W1lOSU">
-
 <title>FR1EV SECURITY | Discord Moderation & Protection Bot</title>
-<meta name="description" content="FR1EV SECURITY is an advanced Discord moderation and protection bot by fr1ev with dashboard controls, AI tools, automod, tickets, leveling, Roblox verification, and server security.">
-<meta name="keywords" content="FR1EV SECURITY, fr1ev, Discord bot, moderation bot, Discord dashboard, Discord security bot, AI Discord bot, Roblox verification">
+<meta name="description" content="FR1EV SECURITY is an advanced Discord moderation and protection bot by fr1ev with dashboard controls, AI tools, automod, tickets, leveling, and server security.">
+<meta name="keywords" content="FR1EV SECURITY, fr1ev, Discord bot, moderation bot, Discord dashboard, Discord security bot, AI Discord bot">
 <meta name="author" content="fr1ev">
 <meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://fr1ev.xyz">
-
+<link rel="canonical" href="https://fr1ev.github.io/fr1ev-security/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fr1ev.xyz">
+<meta property="og:url" content="https://fr1ev.github.io/fr1ev-security/">
 <meta property="og:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
-<meta property="og:description" content="Advanced moderation, automod, AI tools, tickets, Roblox verification, and dashboard control for Discord servers.">
-<meta property="og:image" content="https://fr1ev.xyz/favicon.ico">
-
+<meta property="og:description" content="Advanced moderation, automod, AI tools, tickets, and dashboard control for Discord servers.">
+<meta property="og:image" content="https://fr1ev.github.io/fr1ev-security/assets/fr1ev-shield.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
-<meta name="twitter:description" content="Advanced Discord moderation, protection, automod, tickets, dashboard tools, and Roblox verification.">
-<meta name="twitter:image" content="https://fr1ev.xyz/favicon.ico">
-
 <meta name="theme-color" content="#2563eb">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/fr1ev-shield.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-
-<script>
-if (window.location.hostname.includes("github.io")) {
-  window.location.replace("https://fr1ev.xyz");
-}
-</script>
-
 <style>
 :root{--bg:#06142f;--bg2:#0b1f4d;--panel:#0f2a66;--panel2:#123a90;--line:#2f66d4;--text:#f8fbff;--muted:#b7cdfb;--blue:#3b82f6;--blue2:#2563eb;--cyan:#38bdf8;--green:#22c55e}
 *{box-sizing:border-box}
@@ -43,7 +28,8 @@ a{color:inherit;text-decoration:none}
 .top-nav{position:sticky;top:0;z-index:10;background:rgba(6,20,47,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12)}
 .top-nav-inner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nav-brand{display:flex;align-items:center;gap:10px;font-weight:900}
-.nav-mark{width:38px;height:38px;object-fit:contain;display:block}
+.nav-mark{display:grid;place-items:center;width:44px;height:44px;padding:5px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(15,42,102,.96),rgba(8,25,60,.94));box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.nav-mark img{width:100%;height:100%;object-fit:contain;display:block}
 .nav-links{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .nav-links a{min-height:38px;padding:9px 12px;border-radius:8px;color:#dbeafe;font-weight:800}
 .nav-links a:hover{background:rgba(59,130,246,.22)}
@@ -55,12 +41,15 @@ h1{margin:18px 0 0;font-size:clamp(42px,8vw,82px);line-height:1;font-weight:900;
 .buttons{margin-top:42px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-weight:800;border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 34px rgba(37,99,235,.28);transition:.2s ease}
 .button:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(37,99,235,.45)}
+.button.vote-topgg{background:linear-gradient(135deg,#ff4f8b,#ff2f6d);box-shadow:0 0 24px rgba(255,79,139,.42),0 12px 34px rgba(255,47,109,.28)}
+.button.vote-topgg:hover{box-shadow:0 0 30px rgba(255,79,139,.6),0 16px 42px rgba(255,47,109,.4)}
+.button.vote-dbl{background:linear-gradient(135deg,#7dd3fc,#2563eb);box-shadow:0 0 24px rgba(125,211,252,.42),0 12px 34px rgba(37,99,235,.28)}
+.button.vote-dbl:hover{box-shadow:0 0 30px rgba(125,211,252,.58),0 16px 42px rgba(37,99,235,.42)}
 .button.dark{background:rgba(15,42,102,.86)}
 .button.dashboard{background:linear-gradient(135deg,#60a5fa,#1d4ed8);box-shadow:0 0 32px rgba(96,165,250,.58)}
 .status-box{margin:34px auto 0;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(8,25,60,.74);color:#dbeafe;font-weight:800}
 .status-dot{display:inline-block;width:10px;height:10px;border-radius:50%}
-.online{background:#22c55e;box-shadow:0 0 14px #22c55e}
-.offline{background:#ef4444;box-shadow:0 0 14px #ef4444}
+.online{background:#22c55e;box-shadow:0 0 14px #22c55e}.offline{background:#ef4444;box-shadow:0 0 14px #ef4444}
 section{padding:74px 0}
 .section-head{text-align:center;max-width:760px;margin:0 auto 28px}
 h2{font-size:clamp(30px,4vw,46px);margin:0;line-height:1.1}
@@ -78,41 +67,38 @@ footer nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bo
 footer a{color:#dbeafe;font-weight:800}
 @media(max-width:820px){.top-nav-inner{align-items:flex-start;flex-direction:column;padding:14px 0}.grid{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}.button{width:100%}.comparison{font-size:14px}}
 </style>
-
 <script src="https://unpkg.com/@discord/embedded-app-sdk"></script>
 </head>
-
 <body>
 <nav class="top-nav" aria-label="Main navigation">
   <div class="wrap top-nav-inner">
-    <a class="nav-brand" href="/">
-      <img src="/fr1ev_security.png" class="nav-mark" alt="FR1EV SECURITY logo">
+    <a class="nav-brand" href="/fr1ev-security/">
+      <span class="nav-mark"><img src="assets/fr1ev-shield.png" alt="FR1EV SECURITY shield logo"></span>
       <span>FR1EV SECURITY</span>
     </a>
     <div class="nav-links">
-      <a href="https://dashboard.fr1ev.xyz" target="_blank" rel="noopener noreferrer">Dashboard</a>
-      <a href="/roblox/">Roblox</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/tos.html">Terms</a>
+      <a href="https://dashboard.fr1ev.xyz/">Dashboard</a>
+      <a href="/fr1ev-security/roblox/">Roblox</a>
+      <a href="/fr1ev-security/privacy.html">Privacy</a>
+      <a href="/fr1ev-security/tos.html">Terms</a>
     </div>
   </div>
 </nav>
-
 <header>
   <div class="wrap">
     <span class="badge">Discord moderation and protection</span>
     <h1>FR1EV <span class="glow">SECURITY</span></h1>
-    <p class="subtitle">Control moderation, automod, tickets, AI tools, leveling, Roblox verification, voice TTS, and server setup from one blue command center.</p>
-
+    <p class="subtitle">Control moderation, automod, tickets, AI tools, leveling, voice TTS, and server setup from one blue command center with a live Cloudflare Worker dashboard.</p>
     <div class="buttons">
-      <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=8" target="_blank" rel="noopener noreferrer">Add to Server</a>
-      <a class="button dashboard" href="https://dashboard.fr1ev.xyz" target="_blank" rel="noopener noreferrer">Dashboard</a>
+      <a class="button vote-topgg" href="https://top.gg/bot/1453017552551936000/vote">Vote us Top.gg</a>
+      <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=0&scope=bot%20applications.commands&permissions=1495155600630" target="_blank" rel="noopener noreferrer">Add to Server</a>
+      <a class="button vote-dbl" href="https://discordbotlist.com/bots/1453017552551936000/upvote">Vote us DBL</a>
+      <a class="button dashboard" href="https://dashboard.fr1ev.xyz/">Dashboard</a>
       <a class="button" href="https://discord.gg/TEMa2cFh6h" target="_blank" rel="noopener noreferrer">Support Server</a>
       <a class="button" href="https://discord.com/oauth2/authorize?client_id=1453017552551936000&integration_type=1&scope=applications.commands" target="_blank" rel="noopener noreferrer">User Install</a>
-      <a id="robloxBtn" class="button dark" href="/roblox/">Roblox Link</a>
-      <a class="button dark" href="/profile/">Profile</a>
+      <a class="button dark" href="/fr1ev-security/roblox/">Roblox Link</a>
+      <a class="button dark" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">Profile</a>
     </div>
-
     <div class="status-box" id="botStatus"><span class="status-dot offline"></span> Checking status...</div>
   </div>
 </header>
@@ -123,22 +109,10 @@ footer a{color:#dbeafe;font-weight:800}
       <h2>Built for server control</h2>
       <p>FR1EV SECURITY keeps the serious tools fast: ban, kick, timeout, role control, owner bypass, tickets, server stats, verification, AI, and automod.</p>
     </div>
-
     <div class="grid">
-      <article class="card">
-        <h3>Dashboard moderation</h3>
-        <p>Use the dashboard with the bot API to ban, kick, timeout, untimeout, unban, manage roles, and send announcements after Discord permission checks.</p>
-      </article>
-
-      <article class="card">
-        <h3>Automod</h3>
-        <p>Enable spam filtering, invite blocking, link blocking, mention limits, blocked words, and timeout punishments from the dashboard.</p>
-      </article>
-
-      <article class="card">
-        <h3>Server systems</h3>
-        <p>Tickets, Roblox verification, leveling, server stats, TTS, AI ask, image generation, and owner tools stay connected to your bot commands.</p>
-      </article>
+      <article class="card"><h3>Dashboard moderation</h3><p>Use the Worker dashboard to ban, kick, timeout, untimeout, unban, manage roles, and send announcements after Discord permission checks.</p></article>
+      <article class="card"><h3>Automod</h3><p>Enable spam filtering, invite blocking, link blocking, mention limits, blocked words, and timeout punishments from the Worker dashboard.</p></article>
+      <article class="card"><h3>Server systems</h3><p>Tickets, verification, leveling, server stats, TTS, AI ask, image generation, and owner tools stay connected to your bot commands.</p></article>
     </div>
   </div>
 </section>
@@ -148,9 +122,9 @@ footer a{color:#dbeafe;font-weight:800}
     <div class="cta">
       <div>
         <h2>Open the dashboard</h2>
-        <p>Login with Discord, pick a server, connect your private bot API, and manage the server safely.</p>
+        <p>Login with Discord, pick a server where the bot is already present, and manage it from the Worker dashboard.</p>
       </div>
-      <a class="button dashboard" href="https://dashboard.fr1ev.xyz" target="_blank" rel="noopener noreferrer">Dashboard</a>
+      <a class="button dashboard" href="https://dashboard.fr1ev.xyz/">Dashboard</a>
     </div>
   </div>
 </section>
@@ -160,14 +134,12 @@ footer a{color:#dbeafe;font-weight:800}
     <div class="section-head">
       <h2>FR1EV vs typical bots</h2>
     </div>
-
     <table class="comparison">
       <tr><th>Feature</th><th>FR1EV</th><th>Typical Bot</th></tr>
       <tr><td>Global owner control</td><td>Yes</td><td>No</td></tr>
       <tr><td>Role-based access</td><td>Advanced</td><td>Basic</td></tr>
       <tr><td>Dashboard moderation</td><td>Yes</td><td>Depends</td></tr>
       <tr><td>AI and image generation</td><td>Yes</td><td>No</td></tr>
-      <tr><td>Roblox verification</td><td>Yes</td><td>Depends</td></tr>
       <tr><td>Lightweight Python architecture</td><td>Yes</td><td>No</td></tr>
     </table>
   </div>
@@ -176,9 +148,10 @@ footer a{color:#dbeafe;font-weight:800}
 <footer>
   <div class="wrap">
     <nav>
-      <a href="/roblox/">Roblox</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/tos.html">Terms</a>
+      <a href="https://dashboard.fr1ev.xyz/">Dashboard</a>
+      <a href="/fr1ev-security/roblox/">Roblox</a>
+      <a href="/fr1ev-security/privacy.html">Privacy</a>
+      <a href="/fr1ev-security/tos.html">Terms</a>
     </nav>
     2026 FR1EV SECURITY - Verified Discord Application
   </div>
@@ -194,7 +167,7 @@ footer a{color:#dbeafe;font-weight:800}
   } catch {}
 
   const box = document.getElementById("botStatus");
-  const statusUrl = "/status.json?v=" + Date.now();
+  const statusUrl = "/fr1ev-security/status.json?v=" + Date.now();
 
   function setStatus(dot, text) {
     if (!box) return;
@@ -220,7 +193,6 @@ footer a{color:#dbeafe;font-weight:800}
     })
     .then(function(data){
       window.clearTimeout(fallbackTimer);
-
       const last = Number(data.last_heartbeat || 0);
       const offlineAfter = Number(data.offline_after || 900);
       const now = Math.floor(Date.now() / 1000);
@@ -229,7 +201,6 @@ footer a{color:#dbeafe;font-weight:800}
       if (!last || Number.isNaN(last)) return offline("bad heartbeat");
       if (diff < 0) return online(0);
       if (data.online !== false && diff <= offlineAfter) return online(diff);
-
       return offline("last heartbeat " + diff + "s ago");
     })
     .catch(function(error){
@@ -237,28 +208,6 @@ footer a{color:#dbeafe;font-weight:800}
       offline("heartbeat fetch failed");
       console.warn("FR1EV heartbeat status failed:", error);
     });
-
-  const robloxBtn = document.getElementById("robloxBtn");
-
-  if (robloxBtn) {
-    fetch("https://dashboard.fr1ev.xyz/api/me", {
-      credentials: "include"
-    })
-      .then(function(res){
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      })
-      .then(function(data){
-        if (data && data.ok && data.user && data.user.id) {
-          robloxBtn.href = "https://fr1ev.xyz/roblox/?discord_id=" + encodeURIComponent(data.user.id);
-        } else {
-          robloxBtn.href = "https://fr1ev.xyz/roblox/";
-        }
-      })
-      .catch(function(){
-        robloxBtn.href = "https://fr1ev.xyz/roblox/";
-      });
-  }
 })();
 </script>
 </body>
