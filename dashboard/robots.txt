@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://fr1ev.xyz/sitemap.xml
