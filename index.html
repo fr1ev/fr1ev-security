@@ -17,15 +17,15 @@
 <meta property="og:url" content="https://fr1ev.xyz/">
 <meta property="og:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
 <meta property="og:description" content="Advanced moderation, automod, tickets, leveling, Roblox verification, AI tools, and dashboard control for Discord servers.">
-<meta property="og:image" content="https://fr1ev.xyz/assets/fr1ev-shield.png">
+<meta property="og:image" content="https://fr1ev.xyz/fr1ev_security.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FR1EV SECURITY | Discord Moderation & Protection Bot">
 <meta name="twitter:description" content="Advanced moderation, automod, tickets, leveling, Roblox verification, AI tools, and dashboard control for Discord servers.">
-<meta name="twitter:image" content="https://fr1ev.xyz/assets/fr1ev-shield.png">
+<meta name="twitter:image" content="https://fr1ev.xyz/fr1ev_security.png">
 
 <meta name="theme-color" content="#2563eb">
-<link rel="icon" href="/assets/fr1ev-shield.png" type="image/png">
+<link rel="icon" href="/fr1ev_security.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -42,8 +42,15 @@
   --cyan:#38bdf8;
   --green:#22c55e;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:Inter,Arial,sans-serif;
@@ -51,8 +58,16 @@ body{
   color:var(--text);
   letter-spacing:0;
 }
-a{color:inherit;text-decoration:none}
-.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.wrap{
+  width:min(1180px,calc(100% - 32px));
+  margin:0 auto;
+}
 
 .top-nav{
   position:sticky;
@@ -62,6 +77,7 @@ a{color:inherit;text-decoration:none}
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(255,255,255,.12);
 }
+
 .top-nav-inner{
   min-height:68px;
   display:flex;
@@ -69,12 +85,14 @@ a{color:inherit;text-decoration:none}
   justify-content:space-between;
   gap:16px;
 }
+
 .nav-brand{
   display:flex;
   align-items:center;
   gap:10px;
   font-weight:900;
 }
+
 .nav-mark{
   display:grid;
   place-items:center;
@@ -86,18 +104,21 @@ a{color:inherit;text-decoration:none}
   background:linear-gradient(180deg,rgba(15,42,102,.96),rgba(8,25,60,.94));
   box-shadow:0 10px 28px rgba(0,0,0,.3);
 }
+
 .nav-mark img{
   width:100%;
   height:100%;
   object-fit:contain;
   display:block;
 }
+
 .nav-links{
   display:flex;
   align-items:center;
   gap:10px;
   flex-wrap:wrap;
 }
+
 .nav-links a{
   min-height:38px;
   padding:9px 12px;
@@ -105,7 +126,10 @@ a{color:inherit;text-decoration:none}
   color:#dbeafe;
   font-weight:800;
 }
-.nav-links a:hover{background:rgba(59,130,246,.22)}
+
+.nav-links a:hover{
+  background:rgba(59,130,246,.22);
+}
 
 header{
   min-height:92vh;
@@ -114,6 +138,7 @@ header{
   text-align:center;
   padding:80px 0 48px;
 }
+
 .badge{
   display:inline-flex;
   align-items:center;
@@ -125,6 +150,7 @@ header{
   color:#dbeafe;
   font-weight:800;
 }
+
 h1{
   margin:18px 0 0;
   font-size:clamp(42px,8vw,82px);
@@ -132,10 +158,12 @@ h1{
   font-weight:900;
   overflow-wrap:anywhere;
 }
+
 .glow{
   color:#93c5fd;
   text-shadow:0 0 30px rgba(147,197,253,.55);
 }
+
 .subtitle{
   max-width:790px;
   margin:18px auto 0;
@@ -151,6 +179,7 @@ h1{
   gap:14px;
   flex-wrap:wrap;
 }
+
 .button{
   display:inline-flex;
   align-items:center;
@@ -165,25 +194,34 @@ h1{
   box-shadow:0 12px 34px rgba(37,99,235,.28);
   transition:.2s ease;
 }
+
 .button:hover{
   transform:translateY(-3px);
   box-shadow:0 16px 42px rgba(37,99,235,.45);
 }
+
 .button.vote-topgg{
   background:linear-gradient(135deg,#ff4f8b,#ff2f6d);
   box-shadow:0 0 24px rgba(255,79,139,.42),0 12px 34px rgba(255,47,109,.28);
 }
+
 .button.vote-topgg:hover{
   box-shadow:0 0 30px rgba(255,79,139,.6),0 16px 42px rgba(255,47,109,.4);
 }
+
 .button.vote-dbl{
   background:linear-gradient(135deg,#7dd3fc,#2563eb);
   box-shadow:0 0 24px rgba(125,211,252,.42),0 12px 34px rgba(37,99,235,.28);
 }
+
 .button.vote-dbl:hover{
   box-shadow:0 0 30px rgba(125,211,252,.58),0 16px 42px rgba(37,99,235,.42);
 }
-.button.dark{background:rgba(15,42,102,.86)}
+
+.button.dark{
+  background:rgba(15,42,102,.86);
+}
+
 .button.dashboard{
   background:linear-gradient(135deg,#60a5fa,#1d4ed8);
   box-shadow:0 0 32px rgba(96,165,250,.58);
@@ -202,35 +240,52 @@ h1{
   color:#dbeafe;
   font-weight:800;
 }
+
 .status-dot{
   display:inline-block;
   width:10px;
   height:10px;
   border-radius:50%;
 }
-.online{background:#22c55e;box-shadow:0 0 14px #22c55e}
-.offline{background:#ef4444;box-shadow:0 0 14px #ef4444}
 
-section{padding:74px 0}
+.online{
+  background:#22c55e;
+  box-shadow:0 0 14px #22c55e;
+}
+
+.offline{
+  background:#ef4444;
+  box-shadow:0 0 14px #ef4444;
+}
+
+section{
+  padding:74px 0;
+}
+
 .section-head{
   text-align:center;
   max-width:760px;
   margin:0 auto 28px;
 }
+
 h2{
   font-size:clamp(30px,4vw,46px);
   margin:0;
   line-height:1.1;
 }
-.section-head p,.card p{
+
+.section-head p,
+.card p{
   color:var(--muted);
   line-height:1.65;
 }
+
 .grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:16px;
 }
+
 .card{
   min-height:220px;
   padding:22px;
@@ -239,6 +294,7 @@ h2{
   background:rgba(13,47,116,.75);
   box-shadow:0 18px 50px rgba(0,0,0,.22);
 }
+
 .card h3{
   margin:0 0 10px;
   font-size:22px;
@@ -251,12 +307,17 @@ h2{
   overflow:hidden;
   border-radius:8px;
 }
-.comparison th,.comparison td{
+
+.comparison th,
+.comparison td{
   padding:15px;
   border:1px solid rgba(255,255,255,.15);
   background:rgba(8,25,60,.48);
 }
-.comparison th{background:rgba(37,99,235,.42)}
+
+.comparison th{
+  background:rgba(37,99,235,.42);
+}
 
 .cta{
   display:flex;
@@ -268,6 +329,7 @@ h2{
   border:1px solid rgba(255,255,255,.18);
   background:linear-gradient(135deg,rgba(59,130,246,.42),rgba(29,78,216,.38));
 }
+
 .cta p{
   margin:8px 0 0;
   color:#dbeafe;
@@ -279,6 +341,7 @@ footer{
   color:#b7cdfb;
   border-top:1px solid rgba(255,255,255,.12);
 }
+
 footer nav{
   display:flex;
   justify-content:center;
@@ -286,6 +349,7 @@ footer nav{
   flex-wrap:wrap;
   margin-bottom:10px;
 }
+
 footer a{
   color:#dbeafe;
   font-weight:800;
@@ -297,13 +361,23 @@ footer a{
     flex-direction:column;
     padding:14px 0;
   }
-  .grid{grid-template-columns:1fr}
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
   .cta{
     align-items:flex-start;
     flex-direction:column;
   }
-  .button{width:100%}
-  .comparison{font-size:14px}
+
+  .button{
+    width:100%;
+  }
+
+  .comparison{
+    font-size:14px;
+  }
 }
 </style>
 
@@ -315,7 +389,7 @@ footer a{
   <div class="wrap top-nav-inner">
     <a class="nav-brand" href="/">
       <span class="nav-mark">
-        <img src="/assets/fr1ev-shield.png" alt="FR1EV SECURITY shield logo">
+        <img src="/fr1ev_security.png" alt="FR1EV SECURITY shield logo">
       </span>
       <span>FR1EV SECURITY</span>
     </a>
@@ -323,6 +397,7 @@ footer a{
     <div class="nav-links">
       <a href="https://dashboard.fr1ev.xyz/">Dashboard</a>
       <a href="/roblox/">Roblox</a>
+      <a href="/profile/">Profile</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tos.html">Terms</a>
     </div>
@@ -332,7 +407,9 @@ footer a{
 <header>
   <div class="wrap">
     <span class="badge">Discord moderation and protection</span>
+
     <h1>FR1EV <span class="glow">SECURITY</span></h1>
+
     <p class="subtitle">
       Control moderation, automod, tickets, AI tools, leveling, Roblox verification, voice TTS, and server setup from one blue command center with a live Cloudflare Worker dashboard.
     </p>
@@ -352,7 +429,7 @@ footer a{
 
       <a class="button dark" href="/roblox/">Roblox Link</a>
 
-      <a class="button dark" href="https://fr1ev.github.io/notfr1ev/" target="_blank" rel="noopener noreferrer">Profile</a>
+      <a class="button dark" href="/profile/">Profile</a>
     </div>
 
     <div class="status-box" id="botStatus">
@@ -373,17 +450,23 @@ footer a{
     <div class="grid">
       <article class="card">
         <h3>Dashboard moderation</h3>
-        <p>Use the Worker dashboard to ban, kick, timeout, untimeout, unban, manage roles, and send announcements after Discord permission checks.</p>
+        <p>
+          Use the Worker dashboard to ban, kick, timeout, untimeout, unban, manage roles, and send announcements after Discord permission checks.
+        </p>
       </article>
 
       <article class="card">
         <h3>Automod</h3>
-        <p>Enable spam filtering, invite blocking, link blocking, mention limits, blocked words, and timeout punishments from the Worker dashboard.</p>
+        <p>
+          Enable spam filtering, invite blocking, link blocking, mention limits, blocked words, and timeout punishments from the Worker dashboard.
+        </p>
       </article>
 
       <article class="card">
         <h3>Server systems</h3>
-        <p>Tickets, verification, leveling, Roblox linking, server stats, TTS, AI ask, image generation, and owner tools stay connected to your bot commands.</p>
+        <p>
+          Tickets, verification, leveling, Roblox linking, server stats, TTS, AI ask, image generation, and owner tools stay connected to your bot commands.
+        </p>
       </article>
     </div>
   </div>
@@ -394,8 +477,11 @@ footer a{
     <div class="cta">
       <div>
         <h2>Open the dashboard</h2>
-        <p>Login with Discord, pick a server where the bot is already present, and manage it from the Worker dashboard.</p>
+        <p>
+          Login with Discord, pick a server where the bot is already present, and manage it from the Worker dashboard.
+        </p>
       </div>
+
       <a class="button dashboard" href="https://dashboard.fr1ev.xyz/">Dashboard</a>
     </div>
   </div>
@@ -447,9 +533,11 @@ footer a{
     <nav>
       <a href="https://dashboard.fr1ev.xyz/">Dashboard</a>
       <a href="/roblox/">Roblox</a>
+      <a href="/profile/">Profile</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/tos.html">Terms</a>
     </nav>
+
     2026 FR1EV SECURITY - Verified Discord Application
   </div>
 </footer>
