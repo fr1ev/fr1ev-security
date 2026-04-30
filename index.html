@@ -300,6 +300,33 @@ h2{
   font-size:22px;
 }
 
+.commands-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.command{
+  padding:18px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(8,25,60,.58);
+}
+
+.command code{
+  display:inline-block;
+  margin-bottom:8px;
+  color:#dbeafe;
+  font-weight:900;
+  font-size:16px;
+}
+
+.command p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+}
+
 .comparison{
   width:100%;
   border-collapse:collapse;
@@ -362,7 +389,8 @@ footer a{
     padding:14px 0;
   }
 
-  .grid{
+  .grid,
+  .commands-grid{
     grid-template-columns:1fr;
   }
 
@@ -395,7 +423,7 @@ footer a{
     </a>
 
     <div class="nav-links">
-      <a href="https://dashboard.fr1ev.xyz/">Dashboard</a>
+      <a href="/dashboard/">Dashboard</a>
       <a href="/roblox/">Roblox</a>
       <a href="/profile/">Profile</a>
       <a href="/privacy.html">Privacy</a>
@@ -476,6 +504,64 @@ footer a{
   <div class="wrap">
     <div class="cta">
       <div>
+        <h2>Official dashboard landing page</h2>
+        <p>
+          Learn how the FR1EV SECURITY dashboard works, then open the real dashboard app to manage automod, moderation, logging, verification, leveling, tickets, and server protection.
+        </p>
+      </div>
+
+      <a class="button dashboard" href="/dashboard/">View Dashboard Page</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Popular commands</h2>
+      <p>
+        FR1EV SECURITY uses Discord slash commands for setup, moderation, leveling, verification, and dashboard access.
+      </p>
+    </div>
+
+    <div class="commands-grid">
+      <div class="command">
+        <code>/setup</code>
+        <p>Start server setup and configure important protection features.</p>
+      </div>
+
+      <div class="command">
+        <code>/dashboard</code>
+        <p>Open the dashboard and manage your server settings.</p>
+      </div>
+
+      <div class="command">
+        <code>/rank</code>
+        <p>View your level, XP progress, and custom rank card.</p>
+      </div>
+
+      <div class="command">
+        <code>/warns</code>
+        <p>View warnings and moderation history for a user.</p>
+      </div>
+
+      <div class="command">
+        <code>/verify</code>
+        <p>Link or verify a Roblox account with Discord.</p>
+      </div>
+
+      <div class="command">
+        <code>/ticket</code>
+        <p>Create or manage support tickets for your server.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <div>
         <h2>Open the dashboard</h2>
         <p>
           Login with Discord, pick a server where the bot is already present, and manage it from the Worker dashboard.
@@ -531,7 +617,7 @@ footer a{
 <footer>
   <div class="wrap">
     <nav>
-      <a href="https://dashboard.fr1ev.xyz/">Dashboard</a>
+      <a href="/dashboard/">Dashboard</a>
       <a href="/roblox/">Roblox</a>
       <a href="/profile/">Profile</a>
       <a href="/privacy.html">Privacy</a>
