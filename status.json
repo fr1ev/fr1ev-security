@@ -1,8 +1,8 @@
 {
   "online": true,
-  "last_heartbeat": 1783987423,
-  "updated_at": "2026-07-14T00:03:43+00:00",
-  "next_expected": 1783987723,
+  "last_heartbeat": 1783987724,
+  "updated_at": "2026-07-14T00:08:44+00:00",
+  "next_expected": 1783988024,
   "offline_after": 900,
   "source": "fr1ev-security-bot"
 }
