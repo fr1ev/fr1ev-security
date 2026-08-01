@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Terms of Service for Brainrot Clicker by FR1EV Studios."
+  >
+
+  <title>Terms of Service | Brainrot Clicker</title>
+
+  <style>
+    :root {
+      --background-top: #36d7e6;
+      --background-bottom: #0756bd;
+      --panel: rgba(8, 20, 39, 0.94);
+      --panel-light: rgba(255, 255, 255, 0.08);
+      --text: #f7fbff;
+      --muted: #b9c8da;
+      --yellow: #ffc928;
+      --green: #5eda27;
+      --link: #70dcff;
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.7;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 255, 255, 0.2),
+          transparent 32rem
+        ),
+        linear-gradient(
+          180deg,
+          var(--background-top),
+          var(--background-bottom)
+        );
+    }
+
+    a {
+      color: var(--link);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .page-shell {
+      width: min(100% - 32px, 1040px);
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    .hero {
+      margin-bottom: 24px;
+      padding: 44px 32px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: var(--panel);
+      box-shadow: 0 24px 60px var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--yellow);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 8vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+      text-shadow:
+        0 5px 0 #131313,
+        0 10px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    .brainrot {
+      color: var(--yellow);
+    }
+
+    .clicker {
+      color: var(--green);
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .effective-date {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--panel-light);
+      font-size: 0.9rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contents,
+    .terms {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--panel);
+      box-shadow: 0 18px 45px var(--shadow);
+    }
+
+    .contents {
+      position: sticky;
+      top: 20px;
+      padding: 22px;
+    }
+
+    .contents h2 {
+      margin: 0 0 14px;
+      color: var(--yellow);
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    .contents ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contents a {
+      display: block;
+      padding: 7px 9px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .contents a:hover,
+    .contents a:focus-visible {
+      color: var(--text);
+      background: var(--panel-light);
+      text-decoration: none;
+    }
+
+    .terms {
+      padding: clamp(24px, 5vw, 48px);
+    }
+
+    section {
+      scroll-margin-top: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:first-child {
+      padding-top: 0;
+    }
+
+    section:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: var(--yellow);
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding-left: 22px;
+      color: var(--muted);
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 18px;
+      border-left: 5px solid var(--yellow);
+      border-radius: 10px;
+      color: var(--muted);
+      background: rgba(255, 201, 40, 0.1);
+    }
+
+    .contact-card {
+      margin-top: 18px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel-light);
+    }
+
+    footer {
+      padding: 26px 16px 0;
+      color: rgba(255, 255, 255, 0.75);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .page-shell {
+        padding-top: 24px;
+      }
+
+      .hero {
+        padding: 36px 20px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contents {
+        position: static;
+      }
+
+      .contents ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .contents ul {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">FR1EV Studios</p>
+
+      <h1>
+        <span class="brainrot">Brainrot</span>
+        <span class="clicker">Clicker</span>
+      </h1>
+
+      <p class="subtitle">
+        These Terms of Service govern your access to and use of
+        Brainrot Clicker and its related services.
+      </p>
+
+      <p class="effective-date">
+        Effective date: August 1, 2026
+      </p>
+    </header>
+
+    <div class="layout">
+      <nav class="contents" aria-label="Terms sections">
+        <h2>Contents</h2>
+
+        <ul>
+          <li><a href="#acceptance">1. Acceptance</a></li>
+          <li><a href="#eligibility">2. Eligibility</a></li>
+          <li><a href="#license">3. Game license</a></li>
+          <li><a href="#conduct">4. User conduct</a></li>
+          <li><a href="#purchases">5. Purchases</a></li>
+          <li><a href="#third-party">6. Third parties</a></li>
+          <li><a href="#ownership">7. Ownership</a></li>
+          <li><a href="#updates">8. Updates</a></li>
+          <li><a href="#termination">9. Termination</a></li>
+          <li><a href="#disclaimer">10. Disclaimer</a></li>
+          <li><a href="#liability">11. Liability</a></li>
+          <li><a href="#law">12. Governing law</a></li>
+          <li><a href="#changes">13. Changes</a></li>
+          <li><a href="#contact">14. Contact</a></li>
+        </ul>
+      </nav>
+
+      <article class="terms">
+        <section id="acceptance">
+          <h2>1. Acceptance of these Terms</h2>
+
+          <p>
+            These Terms of Service ("Terms") form an agreement between
+            you and <strong>FR1EV Studios</strong> ("we," "us," or
+            "our") regarding your use of
+            <strong>Brainrot Clicker</strong> ("Game").
+          </p>
+
+          <p>
+            By downloading, installing, accessing, purchasing, or
+            playing the Game, you agree to these Terms. If you do not
+            agree, do not download, install, access, or use the Game.
+          </p>
+        </section>
+
+        <section id="eligibility">
+          <h2>2. Eligibility and minors</h2>
+
+          <p>
+            You must be legally capable of agreeing to these Terms in
+            your country. If you are under the age of legal majority,
+            your parent or legal guardian must review and accept these
+            Terms on your behalf.
+          </p>
+
+          <p>
+            The Game is not intended to knowingly collect personal
+            information from children in violation of applicable law.
+            Information about data handling should be described in our
+            separate Privacy Policy.
+          </p>
+        </section>
+
+        <section id="license">
+          <h2>3. Limited license to use the Game</h2>
+
+          <p>
+            Subject to these Terms, FR1EV Studios grants you a limited,
+            personal, revocable, non-exclusive, non-transferable, and
+            non-commercial license to install and use the Game for
+            personal entertainment.
+          </p>
+
+          <p>You may not:</p>
+
+          <ul>
+            <li>
+              Sell, rent, sublicense, distribute, or commercially
+              exploit the Game except where expressly permitted.
+            </li>
+
+            <li>
+              Copy, modify, reverse engineer, decompile, or extract
+              source code except where applicable law expressly allows
+              it.
+            </li>
+
+            <li>
+              Circumvent security, licensing, anti-cheat, or access
+              restrictions.
+            </li>
+
+            <li>
+              Use the Game to develop or distribute malware, cheats,
+              exploits, or unauthorized modifications.
+            </li>
+
+            <li>
+              Misrepresent yourself as FR1EV Studios or as an official
+              representative of the Game.
+            </li>
+          </ul>
+        </section>
+
+        <section id="conduct">
+          <h2>4. User conduct</h2>
+
+          <p>
+            When using community, Discord, workshop, review, or other
+            interactive features connected to the Game, you agree not
+            to:
+          </p>
+
+          <ul>
+            <li>Harass, threaten, impersonate, or abuse others.</li>
+
+            <li>
+              Upload or share unlawful, hateful, sexually exploitative,
+              fraudulent, or malicious material.
+            </li>
+
+            <li>
+              Spam, scam, phish, or distribute harmful links or files.
+            </li>
+
+            <li>
+              Interfere with servers, services, software, or other
+              players.
+            </li>
+
+            <li>
+              Violate the rules of Steam, Discord, or any other platform
+              used with the Game.
+            </li>
+          </ul>
+        </section>
+
+        <section id="purchases">
+          <h2>5. Purchases, refunds, and virtual items</h2>
+
+          <p>
+            Purchases may be processed by third-party platforms such as
+            Steam. Their payment, refund, and account terms may apply
+            in addition to these Terms.
+          </p>
+
+          <p>
+            Unless otherwise stated, virtual currencies, upgrades,
+            cosmetics, achievements, and other digital items:
+          </p>
+
+          <ul>
+            <li>have no real-world cash value;</li>
+            <li>do not represent ownership of property;</li>
+            <li>may not be sold or transferred outside permitted systems;</li>
+            <li>
+              may be modified or discontinued where legally permitted.
+            </li>
+          </ul>
+
+          <div class="notice">
+            Nothing in these Terms removes any mandatory refund,
+            guarantee, or consumer right that applies to you under local
+            law.
+          </div>
+        </section>
+
+        <section id="third-party">
+          <h2>6. Third-party platforms and services</h2>
+
+          <p>
+            The Game may interact with services operated by third
+            parties, including Steam and Discord. Those services are
+            governed by their own terms and privacy policies.
+          </p>
+
+          <p>
+            We do not control third-party service availability,
+            outages, account decisions, moderation, or changes to their
+            features.
+          </p>
+        </section>
+
+        <section id="ownership">
+          <h2>7. Intellectual property</h2>
+
+          <p>
+            The Game, its software, artwork, designs, characters,
+            branding, text, audio, logos, and other original material
+            are owned by or licensed to FR1EV Studios and are protected
+            by applicable intellectual-property laws.
+          </p>
+
+          <p>
+            These Terms grant permission to use the Game. They do not
+            transfer ownership of the Game or its intellectual property
+            to you.
+          </p>
+        </section>
+
+        <section id="updates">
+          <h2>8. Updates and availability</h2>
+
+          <p>
+            We may provide patches, updates, balancing changes, new
+            content, or technical changes. Some updates may be required
+            to continue using the Game.
+          </p>
+
+          <p>
+            We may modify, suspend, or discontinue features where
+            reasonably necessary, subject to any rights you have under
+            applicable law.
+          </p>
+
+          <p>
+            We do not guarantee that the Game will always be available,
+            error-free, or compatible with every device or software
+            configuration.
+          </p>
+        </section>
+
+        <section id="termination">
+          <h2>9. Suspension and termination</h2>
+
+          <p>
+            We may restrict or terminate access to online or community
+            features if you materially violate these Terms, abuse our
+            services, create security risks, or engage in unlawful
+            conduct.
+          </p>
+
+          <p>
+            Where reasonable and legally required, we may provide
+            notice or an opportunity to appeal.
+          </p>
+        </section>
+
+        <section id="disclaimer">
+          <h2>10. Disclaimer</h2>
+
+          <p>
+            To the maximum extent permitted by applicable law, the Game
+            is provided on an "as is" and "as available" basis.
+          </p>
+
+          <p>
+            We do not make guarantees regarding uninterrupted
+            availability, perfect security, compatibility, progression
+            results, or freedom from all bugs.
+          </p>
+
+          <p>
+            This section does not exclude guarantees or warranties that
+            cannot legally be excluded.
+          </p>
+        </section>
+
+        <section id="liability">
+          <h2>11. Limitation of liability</h2>
+
+          <p>
+            To the maximum extent permitted by applicable law, FR1EV
+            Studios will not be liable for indirect, incidental,
+            special, consequential, or punitive damages arising from
+            your use of the Game.
+          </p>
+
+          <p>
+            Nothing in these Terms limits liability where doing so would
+            be unlawful, including liability that cannot legally be
+            excluded or limited.
+          </p>
+        </section>
+
+        <section id="law">
+          <h2>12. Governing law and disputes</h2>
+
+          <p>
+            These Terms are governed by the laws of
+            <strong>[INSERT YOUR COUNTRY OR JURISDICTION]</strong>,
+            without removing any mandatory consumer protections that
+            apply in your country of residence.
+          </p>
+
+          <p>
+            Before starting formal proceedings, you agree to contact us
+            and attempt to resolve the issue informally.
+          </p>
+
+          <p>
+            Courts located in
+            <strong>[INSERT CITY AND COUNTRY]</strong> will have
+            jurisdiction where this is legally enforceable.
+          </p>
+        </section>
+
+        <section id="changes">
+          <h2>13. Changes to these Terms</h2>
+
+          <p>
+            We may update these Terms to reflect legal, security,
+            technical, or service changes. The updated version will be
+            posted on this page with a revised effective date.
+          </p>
+
+          <p>
+            Where required, we will provide reasonable notice before
+            material changes take effect.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>14. Contact us</h2>
+
+          <p>
+            Questions or complaints concerning the Game or these Terms
+            can be sent to:
+          </p>
+
+          <div class="contact-card">
+            <strong>FR1EV Studios</strong><br>
+            Email:
+            <a href="mailto:YOUR-EMAIL@example.com">
+              YOUR-EMAIL@example.com
+            </a>
+            <br>
+            Discord:
+            <a
+              href="https://discord.gg/Bd7fEsTHNJ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join the official server
+            </a>
+            <br>
+            Business address:
+            <strong>[INSERT BUSINESS ADDRESS IF REQUIRED]</strong>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <footer>
+      © <span id="current-year"></span> FR1EV Studios.
+      All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
